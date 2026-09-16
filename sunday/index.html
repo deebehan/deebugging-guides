@@ -1,0 +1,556 @@
+<title>The Five Documents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --ground: #FFFDF9;
+    --surface: #FFF1E6;
+    --surface-2: #F3FAFA;
+    --ink: #1F1A1D;
+    --muted: #6E645C;
+    --faint: #9A8F86;
+    --hairline: #E9DDD1;
+    --accent: #A2EDEB;
+    --accent-deep: #0F7D83;
+
+    --display: "Rubik", "Helvetica Neue", Arial, sans-serif;
+    --body: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131719;
+      --surface: #1C2124;
+      --surface-2: #171D1F;
+      --ink: #EFF1F0;
+      --muted: #A0A8A7;
+      --faint: #74807F;
+      --hairline: #2A3234;
+      --accent: #A2EDEB;
+      --accent-deep: #8FE2E0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #131719;
+    --surface: #1C2124;
+    --surface-2: #171D1F;
+    --ink: #EFF1F0;
+    --muted: #A0A8A7;
+    --faint: #74807F;
+    --hairline: #2A3234;
+    --accent: #A2EDEB;
+    --accent-deep: #8FE2E0;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font: 400 17px/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+    padding-inline: 22px;
+    padding-block: 0 96px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  p, li { max-width: 66ch; }
+
+  header.mast { padding-block: 64px 40px; display: grid; gap: 18px; }
+  .eyebrow {
+    font: 500 12.5px/1 var(--body);
+    letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+    display: flex; gap: 10px; align-items: center;
+  }
+  .eyebrow b { color: var(--ink); font-weight: 600; }
+  h1 {
+    font: 700 clamp(38px, 8vw, 58px)/1.04 var(--display);
+    letter-spacing: -.022em; margin: 0; text-wrap: balance;
+  }
+  .lede { font-size: 20px; color: var(--muted); margin: 0; max-width: 36ch; }
+
+  .mark {
+    background: var(--accent); color: #1F1A1D;
+    padding: .08em .3em; border-radius: 4px;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone;
+    font-weight: 600;
+  }
+
+  .facts {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--hairline); border: 1px solid var(--hairline);
+    border-radius: 10px; overflow: hidden;
+  }
+  .facts > div { background: var(--ground); padding: 16px 18px; }
+  .facts dt {
+    font: 500 11.5px/1 var(--body); letter-spacing: .12em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 7px;
+  }
+  .facts dd { margin: 0; font: 500 17px/1.3 var(--display); }
+
+  section { padding-top: 54px; }
+  h2 {
+    font: 700 27px/1.2 var(--display); letter-spacing: -.015em;
+    margin: 0 0 6px; text-wrap: balance;
+    border-top: 1px solid var(--hairline); padding-top: 26px;
+  }
+  h2 + .sub { color: var(--muted); margin: 0 0 22px; }
+  h3 { font: 600 18px/1.35 var(--display); margin: 28px 0 6px; }
+  a { color: inherit; text-decoration-color: var(--accent-deep); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  /* the five, numbered because the fill order is real */
+  ol.files { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: f; }
+  ol.files > li {
+    counter-increment: f; display: grid; grid-template-columns: 30px 1fr; gap: 16px;
+    padding: 20px 0; border-bottom: 1px solid var(--hairline);
+  }
+  ol.files > li:first-child { border-top: 1px solid var(--hairline); }
+  ol.files > li::before {
+    content: counter(f);
+    font: 500 14px/30px var(--mono); text-align: center;
+    height: 30px; border-radius: 7px;
+    background: var(--accent); color: #1F1A1D;
+  }
+  ol.files .name { font: 500 15.5px/1.4 var(--mono); color: var(--accent-deep); }
+  ol.files .holds { margin: 5px 0 0; font-weight: 500; }
+  ol.files .why { margin: 4px 0 0; color: var(--muted); font-size: 15.5px; }
+
+  .scroll { overflow-x: auto; margin-block: 18px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15.5px; min-width: 420px; }
+  th, td { text-align: left; padding: 11px 14px 11px 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th {
+    font: 500 11.5px/1 var(--body); letter-spacing: .1em;
+    text-transform: uppercase; color: var(--faint); padding-bottom: 9px;
+  }
+  code, .file { font: 500 .88em/1.5 var(--mono); color: var(--accent-deep); }
+
+  ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 26px; counter-reset: s; }
+  ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 16px; }
+  ol.steps > li::before {
+    content: counter(s);
+    font: 500 15px/34px var(--mono); text-align: center;
+    height: 34px; border-radius: 8px;
+    background: var(--accent); color: #1F1A1D;
+  }
+  ol.steps p { margin: 0; }
+
+  .promptbox { border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; margin-top: 18px; }
+  .promptbox header {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 11px 14px; background: var(--surface); border-bottom: 1px solid var(--hairline);
+  }
+  .promptbox header span {
+    font: 500 11.5px/1 var(--body); letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .promptbox pre {
+    margin: 0; background: var(--surface-2); padding: 16px 18px;
+    font: 400 14.5px/1.65 var(--body); white-space: pre-wrap; overflow-x: auto;
+  }
+  /* the prompt and the templates hold aligned columns and a table, so they keep
+     a mono face and their own line breaks, and scroll rather than wrap */
+  .promptbox pre.fixed {
+    font: 400 13.5px/1.6 var(--mono); white-space: pre;
+    max-height: 400px; overflow: auto;
+  }
+  button.copy {
+    font: 500 13px/1 var(--body); color: #1F1A1D; background: var(--accent);
+    border: 0; border-radius: 6px; padding: 8px 13px; cursor: pointer;
+  }
+  button.copy:hover { filter: brightness(1.04); }
+  button.copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  .say {
+    background: var(--surface-2); border: 1px solid var(--hairline);
+    border-radius: 10px; padding: 18px 20px; margin-top: 16px;
+    font: 500 21px/1.4 var(--mono);
+  }
+
+  .note {
+    background: var(--surface); border-radius: 10px; padding: 17px 19px;
+    margin-top: 20px; font-size: 15.5px;
+  }
+  .note p { margin: 0; }
+  .note p + p { margin-top: 9px; }
+  .note strong { font-weight: 600; }
+
+  footer {
+    margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--hairline);
+    color: var(--muted); font-size: 15.5px; display: grid; gap: 10px;
+  }
+
+  @media (max-width: 560px) {
+    .facts { grid-template-columns: 1fr; }
+    ol.steps > li, ol.files > li { grid-template-columns: 28px 1fr; gap: 12px; }
+    ol.steps > li::before { height: 28px; line-height: 28px; font-size: 13px; }
+    ol.files > li::before { height: 28px; line-height: 28px; font-size: 13px; }
+    .say { font-size: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow"><b>Deebugging.life</b> <span>/</span> <span>Comment: SUNDAY</span></div>
+  <h1>The AI is not the asset. These are.</h1>
+  <p class="lede">Five plain documents that turn a chat into a system. No code, no accounts, no building. <span class="mark">An afternoon.</span></p>
+  <dl class="facts">
+    <div><dt>Set aside</dt><dd>An afternoon</dd></div>
+    <div><dt>Costs to run</dt><dd>Nothing extra</dd></div>
+    <div><dt>You need</dt><dd>Claude or ChatGPT</dd></div>
+  </dl>
+</header>
+
+<section>
+  <h2>Why documents</h2>
+  <p>I have swapped the model underneath my Sunday system twice. Each time the system got better at the same job, because the job was written down in five files and the model was only the thing reading them.</p>
+  <p><span class="mark">Swap the files and you have a different system. Swap the model and you have the same system, slightly sharper.</span></p>
+  <p>So this is the part worth your afternoon.</p>
+</section>
+
+<section>
+  <h2>The five</h2>
+  <p class="sub">Fill them in this order. The first two take about twenty minutes between them. The other three are mostly choosing.</p>
+  <ol class="files">
+    <li>
+      <div>
+        <div class="name">household.md</div>
+        <p class="holds">Who is in the house, the usual week, how "away" is marked.</p>
+        <p class="why">Turns a calendar readout into a briefing that knows nobody has Wednesday's pickup.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="name">sources.md</div>
+        <p class="holds">Exactly what may be read, and who receives the result.</p>
+        <p class="why">The trust document. If it is not named here, it is not read.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="name">rules.md</div>
+        <p class="holds">The judgment. What always goes in, what never does.</p>
+        <p class="why">The file that grows. Every line is a mistake that cannot happen twice.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="name">voice.md</div>
+        <p class="holds">The register, the greeting, the sign-off, where a joke may go.</p>
+        <p class="why">An unread message is worse than no message.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="name">digest-template.md</div>
+        <p class="holds">The shape. Day by day, then what to remember, then one line of radar.</p>
+        <p class="why">The message is what the family reads. Everything else is archive.</p>
+      </div>
+    </li>
+  </ol>
+  <p>You do not need to finish them to start. A half-filled <span class="file">rules.md</span> with three lines in it works on the first Sunday, and that is how it is supposed to go, because the rest of the lines get written by being wrong.</p>
+</section>
+
+<section>
+  <h2>Getting the five written</h2>
+  <p class="sub">You do not have to fill in templates. Paste one prompt into an ordinary Claude chat and it will interview you about your household and write all five for you.</p>
+
+  <p>Do this in a <strong>normal chat</strong>, not in the project. Only the finished documents go in the project, because instructions with blanks still in them make the system invent things to fill the gaps.</p>
+
+  <div class="promptbox">
+    <header>
+      <span>The setup prompt</span>
+      <button class="copy" data-target="setup">Copy</button>
+    </header>
+    <pre id="setup" class="fixed">I want a weekly message that tells my household what is coming up: who is out,
+who does drop-off and pickup, what is on, and anything that needs money or a
+form. I will run it myself in this app every Sunday. There is no code and
+nothing to install.
+
+Before you write anything, interview me. Ask a few questions at a time, never
+thirty. Assume no technical background and explain any word you would not say
+out loud to a friend.
+
+I need five documents at the end:
+
+1. household.md         Who lives here, what each person is called in the
+                        message, the usual week, who normally does drop-off and
+                        pickup, what is standing, and what flexes.
+2. sources.md           Which calendars may be read, which mail label or senders
+                        may be read, and who receives the finished message.
+                        Nothing outside this file gets read.
+3. rules.md             What always goes in and what never does. Start me off
+                        with sensible defaults and ask which ones I want changed.
+4. voice.md             Who is speaking. Help me pick a character with a real
+                        register, and make sure it does not sound like me. If my
+                        family gets a message that reads as though I wrote it,
+                        that is the wrong outcome.
+5. digest-template.md   The shape: greeting, week label, day by day, a short
+                        reminders tail, sign-off.
+
+How I want you to work with me:
+
+- One document at a time. Interview me for it, write it, show it to me, and
+  change whatever I do not like before moving on to the next one.
+- If I give you a vague answer, ask for the specific version. "Tuesdays are
+  messy" is not something a system can follow.
+- Facts come from me. Do not invent a name, a time, or a school event to make a
+  document look finished. Leave it blank and tell me what is missing.
+- Never ask me to paste a password or an account key into this chat. Nothing
+  here needs one.
+
+At the end, give me all five documents in one block I can copy, in the order
+above, with a line above each saying which file it is.
+
+Start by asking me about my household.</pre>
+  </div>
+
+  <h3>Or fill them in yourself</h3>
+  <p>The same five, blank. Replace everything in brackets. The rules are already filled in, because those hold for any household and you only change them once they are wrong for yours.</p>
+
+  <div class="promptbox">
+    <header>
+      <span>The five, blank</span>
+      <button class="copy" data-target="templates">Copy</button>
+    </header>
+    <pre id="templates" class="fixed">=== household.md ===
+
+## People
+| Name | Role | Called in the message |
+|---|---|---|
+| [Your name] | [parent] | [first name] |
+| [Partner] | [parent] | [first name] |
+| [Helper: au pair, nanny, grandparent, neighbour] | [role] | [first name] |
+| [Child one] | [year level, school or daycare] | [first name] |
+| [Child two] | [year level] | [first name] |
+
+## The usual week
+- Drop-off: from [time], usually [who]
+- Pickup: [time], usually [who]
+- [Day]: [what is different about it]
+- Standing activities: [e.g. Tuesday 5pm swimming, both kids]
+- [What flexes week to week, and who decides]
+
+## How "away" is marked
+- [e.g. an all-day event titled "NAME - OFFICE" means that person is out]
+
+
+=== sources.md ===
+
+## Read
+| Source | Scope | Notes |
+|---|---|---|
+| [Family calendar] | Mon to Sun, plus all-day events for 4 weeks | [what lives on it] |
+| [School calendar] | same | [e.g. already filtered, trust it] |
+| [Mail label] | last 7 days | only the senders below |
+
+If it is not in this table, the run does not read it.
+
+## Senders worth a label
+- [school office address]
+- [school system's no-reply address]
+- [the club, the studio, the childminder]
+
+## Deliver
+| Who | How |
+|---|---|
+| [You] | [text, email, both] |
+| [Partner] | [text] |
+| [Helper] | [text] |
+
+## One home for each fact
+- Who is away: [the calendar], not this file
+- School events: [the school calendar], never copied by hand
+- The usual week: household.md, not the calendar
+
+
+=== rules.md ===
+
+## Always
+- Money, forms and bookings go at the top, under REMEMBER, with the amount and
+  deadline quoted exactly as the source wrote them.
+- Check for a receipt before asking for money. If a confirmation arrived within
+  a few days of the request, show it as done instead of asking again.
+- If a key fact is missing, say so. "No date published, check the form" beats
+  both omitting it and guessing.
+- Dress-up days and bring-something days get flagged the week before, and again
+  in the week. Never the night before.
+- Every weekday line answers the same four questions: who is out, who does
+  drop-off, who does pickup, what is on afterwards.
+- If nobody covers a handoff, say so plainly. Do not resolve it, do not assume.
+
+## Never
+- Never invent a time, an amount or an address.
+- Never repeat every email. Only items with a date, an amount, a deadline or an
+  instruction survive.
+- Never let an email's day-of-the-week mean this week. "Monday" means the Monday
+  after it was sent.
+- Never bury a fact inside a joke.
+- Never cut a time, a place or an owner to make the message shorter. Cut the
+  commentary instead.
+
+## Radar
+- One line. The single most important thing in the next two weeks.
+- Worth it: camps, holidays, term boundaries, performances, anything needing
+  money or a costume.
+
+## Add your own
+[Every line here should be traceable to a week the message got something wrong.
+Write the rule, not the story.]
+-
+-
+
+
+=== voice.md ===
+
+## The character
+[Your register, in two or three lines. Who is speaking, how they regard the
+family, and what they would never say.]
+
+It must never sound like me. Obviously a machine with a personality, not a
+convincing copy of a person.
+
+## Where the joke goes
+Facts are stated flat. A joke may sit before a fact or after it, never on it.
+One joke per section, two per message at the limit.
+The joke goes on the domestic mess, never on the machinery.
+
+## The greeting
+[Invented fresh each week, in the register. Never repeated within two months,
+and never explained.]
+The shape I want: [two or three examples]
+
+## The sign-off
+A real quote, attributed, only if it genuinely is one. Otherwise an original
+line in the register, unattributed. Never invent a quote and attribute it.
+
+## Emoji
+[How many, and where. They carry meaning or they do not appear.]
+
+
+=== digest-template.md ===
+
+## The text
+1. Greeting. One line, per voice.md.
+2. The week label. "Week: Mon 6 to Sun 12 Oct".
+3. Day by day. Only days with something on. Each day: who is out, who has
+   drop-off and pickup, then what is on, with times exactly as written.
+   Anything urgent goes inside its day, not in a list at the bottom.
+4. A short reminders tail. Two or three lines, genuinely urgent only.
+5. Sign-off. One line.
+
+A blank line between each day.
+Under 1200 characters. When it runs long, cut commentary, never a time, a place
+or an owner.
+
+## The email
+1. Greeting.
+2. Every day Monday to Sunday, including the quiet ones.
+3. REMEMBER. Money, forms, bring-and-wear, bookings. Deadlines in bold. Things
+   already paid marked done rather than deleted.
+4. RADAR. One line.
+5. Sign-off.</pre>
+  </div>
+</section>
+
+<section>
+  <h2>Then make the project</h2>
+  <ol class="steps">
+    <li><div><p>Make a project in Claude, or a project in ChatGPT. Call it Sunday Rundown.</p></div></li>
+    <li><div><p>Connect Google Calendar and Gmail in your settings. Read access to your own accounts, and you do this in settings rather than by pasting anything into a chat.</p></div></li>
+    <li><div><p>Paste your five finished documents into the project's instructions, in order, with a line over each one saying which file it is.</p></div></li>
+    <li><div><p>Add these two lines at the very bottom.</p></div></li>
+  </ol>
+
+  <div class="promptbox">
+    <header>
+      <span>The last two lines</span>
+      <button class="copy" data-target="tail">Copy</button>
+    </header>
+    <pre id="tail">Use only the sources named in sources.md. Quote every time and amount exactly as written, and if a fact is not in a source, say it is not published rather than supplying it.
+
+When I tell you something in the message was wrong, do not rewrite the message. Tell me which file the correction belongs in, and give me the line to add.</pre>
+  </div>
+  <p style="margin-top:18px">That second line is the one that turns a chat into a factory.</p>
+</section>
+
+<section>
+  <h2>Every Sunday</h2>
+  <p class="sub">Open the project and type three words.</p>
+  <div class="say">run the Sunday</div>
+  <p style="margin-top:18px">Read it before you send it on. You are the check that the automated version pays a second AI to do.</p>
+</section>
+
+<section>
+  <h2>When it gets something wrong</h2>
+  <p class="sub">Say what was wrong. Take the line it gives you, put it in the file it names, and do not fix the message.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>The mistake</th><th>The file</th></tr></thead>
+      <tbody>
+        <tr><td>It read something it should not have, or missed something it should have read</td><td><span class="file">sources.md</span></td></tr>
+        <tr><td>It got a person, a routine or a handoff wrong</td><td><span class="file">household.md</span></td></tr>
+        <tr><td>It made a bad call about what mattered</td><td><span class="file">rules.md</span></td></tr>
+        <tr><td>It sounded wrong</td><td><span class="file">voice.md</span></td></tr>
+        <tr><td>It was in the wrong order, or too long</td><td><span class="file">digest-template.md</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><span class="mark">Every correction becomes a line in a file. Never a fix to that week's message.</span></p>
+  <p>The instinct is to retype the line and move on. Do that and you will retype it again next week, and the week after, until you quietly stop using the thing.</p>
+</section>
+
+<section>
+  <h2>After a month</h2>
+  <p>The message stops being wrong in new ways and starts being wrong in the same two or three ways, which are the ways your household is genuinely ambiguous.</p>
+  <p>That is the point at which the automated version is worth a day of your time, and not before. Five filled-in documents and a Sunday habit beat a half-built system that nobody trusts.</p>
+</section>
+
+<section>
+  <h2>Two things to decide now</h2>
+  <p class="sub">Both are painful to change later.</p>
+  <div class="note">
+    <p><strong>Who is on the receiving end.</strong> Anyone who gets the message needs to be able to act on it. People who receive it out of politeness stop reading by week three, and then you have a system that is technically working and practically ignored.</p>
+  </div>
+  <div class="note">
+    <p><strong>Whether it sounds like you.</strong> It should not. A weekly message that convincingly impersonates you to your own family is a strange thing to have built, and you will only notice once somebody replies to it.</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>When you are ready for the automated version.</strong> It takes these same five files, unchanged, and runs them on a schedule: a text on Sunday morning, checked by a second AI before it sends, with nobody opening anything. Comment BUILD.</p>
+  <p>The files do not change between the two. You are not rebuilding, you are plugging the same documents into a different engine.</p>
+  <p><strong>Take it and change it.</strong> Everything here is MIT licensed: use it, alter it, build something else out of it, no permission needed and no warranty given. It writes messages about your family, so read what it writes.</p>
+  <p><a href="https://instagram.com/deebugging">@deebugging</a> &middot; Deebugging.life</p>
+</footer>
+
+</div>
+
+<script>
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.dataset.target);
+      if (!el) return;
+      var done = function () {
+        var was = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(function () { btn.textContent = was; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(el.innerText).then(done, function () {
+          btn.textContent = "Select it and copy";
+        });
+      } else {
+        var r = document.createRange();
+        r.selectNodeContents(el);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+        btn.textContent = "Selected, press copy";
+      }
+    });
+  });
+</script>

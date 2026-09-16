@@ -1,0 +1,512 @@
+<title>Sunday Rundown Build</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --ground: #FFFDF9;
+    --surface: #FFF1E6;
+    --surface-2: #FBF4EC;
+    --ink: #1F1A1D;
+    --muted: #6E645C;
+    --faint: #9A8F86;
+    --hairline: #E9DDD1;
+    --accent: #F4A7FA;
+    --accent-deep: #B44FC0;
+    --ok: #4E8C3F;
+
+    --display: "Rubik", "Helvetica Neue", Arial, sans-serif;
+    --body: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #161318;
+      --surface: #201B22;
+      --surface-2: #1B171D;
+      --ink: #F3EDE7;
+      --muted: #A99E96;
+      --faint: #7C726B;
+      --hairline: #322B35;
+      --accent: #F4A7FA;
+      --accent-deep: #F0BFF4;
+      --ok: #8FD07C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #161318;
+    --surface: #201B22;
+    --surface-2: #1B171D;
+    --ink: #F3EDE7;
+    --muted: #A99E96;
+    --faint: #7C726B;
+    --hairline: #322B35;
+    --accent: #F4A7FA;
+    --accent-deep: #F0BFF4;
+    --ok: #8FD07C;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font: 400 17px/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+    padding-inline: 22px;
+    padding-block: 0 96px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  p, li { max-width: 66ch; }
+
+  /* ---------- masthead ---------- */
+  header.mast { padding-block: 64px 40px; display: grid; gap: 18px; }
+  .eyebrow {
+    font: 500 12.5px/1 var(--body);
+    letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+    display: flex; gap: 10px; align-items: center;
+  }
+  .eyebrow b { color: var(--ink); font-weight: 600; }
+  h1 {
+    font: 700 clamp(38px, 8vw, 58px)/1.04 var(--display);
+    letter-spacing: -.022em; margin: 0; text-wrap: balance;
+  }
+  .lede { font-size: 20px; color: var(--muted); margin: 0; max-width: 34ch; }
+
+  /* the caption pill, straight off her reels */
+  .mark {
+    background: var(--accent); color: #1F1A1D;
+    padding: .08em .3em; border-radius: 4px;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone;
+    font-weight: 600;
+  }
+
+  /* ---------- facts strip ---------- */
+  .facts {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--hairline); border: 1px solid var(--hairline);
+    border-radius: 10px; overflow: hidden; margin-block: 8px 0;
+  }
+  .facts > div { background: var(--ground); padding: 16px 18px; }
+  .facts dt {
+    font: 500 11.5px/1 var(--body); letter-spacing: .12em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 7px;
+  }
+  .facts dd { margin: 0; font: 500 17px/1.3 var(--display); }
+
+  /* ---------- sections ---------- */
+  section { padding-top: 54px; }
+  h2 {
+    font: 700 27px/1.2 var(--display); letter-spacing: -.015em;
+    margin: 0 0 6px; text-wrap: balance;
+    border-top: 1px solid var(--hairline); padding-top: 26px;
+  }
+  h2 + .sub { color: var(--muted); margin: 0 0 22px; }
+  h3 { font: 600 18px/1.35 var(--display); margin: 28px 0 6px; }
+  a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  /* ---------- the digest, as it arrives ---------- */
+  .msg {
+    background: var(--surface); border-radius: 18px 18px 18px 5px;
+    padding: 20px 22px; font-size: 15.5px; line-height: 1.6;
+    display: grid; gap: 11px; border: 1px solid var(--hairline);
+  }
+  .msg p { margin: 0; max-width: none; }
+  .msg .from {
+    font: 500 11.5px/1 var(--body); letter-spacing: .1em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  .msg b { font-weight: 600; }
+
+  /* ---------- tables ---------- */
+  .scroll { overflow-x: auto; margin-block: 18px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15.5px; min-width: 420px; }
+  th, td { text-align: left; padding: 11px 14px 11px 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th {
+    font: 500 11.5px/1 var(--body); letter-spacing: .1em;
+    text-transform: uppercase; color: var(--faint); padding-bottom: 9px;
+  }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.total td { border-bottom: none; font-weight: 600; }
+  tr.total td.num { font-weight: 500; }
+  code, .file { font: 500 .88em/1.5 var(--mono); color: var(--accent-deep); }
+
+  /* ---------- numbered steps ---------- */
+  ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; counter-reset: s; }
+  ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 16px; }
+  ol.steps > li::before {
+    content: counter(s);
+    font: 500 15px/34px var(--mono); text-align: center;
+    height: 34px; border-radius: 8px;
+    background: var(--accent); color: #1F1A1D;
+  }
+  ol.steps h3 { margin: 4px 0 6px; }
+  ol.steps p { margin: 0 0 10px; }
+
+  /* the check is the structural unit of this guide: you do not pass without it */
+  .check {
+    border-left: 3px solid var(--accent); padding: 2px 0 2px 14px;
+    margin-top: 12px; font-size: 15.5px; color: var(--muted);
+  }
+  .check b {
+    display: block; font: 500 11px/1 var(--body); letter-spacing: .13em;
+    text-transform: uppercase; color: var(--ink); margin-bottom: 6px;
+  }
+
+  /* ---------- code + prompt ---------- */
+  pre {
+    background: var(--surface-2); border: 1px solid var(--hairline);
+    border-radius: 9px; padding: 15px 17px; overflow-x: auto;
+    font: 400 14px/1.6 var(--mono); margin: 14px 0;
+  }
+  .promptbox { border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; margin-top: 18px; }
+  .promptbox header {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 11px 14px; background: var(--surface); border-bottom: 1px solid var(--hairline);
+  }
+  .promptbox header span {
+    font: 500 11.5px/1 var(--body); letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .promptbox pre { margin: 0; border: 0; border-radius: 0; background: var(--surface-2); max-height: 340px; overflow-y: auto; }
+  button.copy {
+    font: 500 13px/1 var(--body); color: #1F1A1D; background: var(--accent);
+    border: 0; border-radius: 6px; padding: 8px 13px; cursor: pointer;
+  }
+  button.copy:hover { filter: brightness(1.06); }
+  button.copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  .cta {
+    display: inline-block; margin-top: 8px; padding: 13px 22px;
+    background: var(--accent); color: #1F1A1D; border-radius: 9px;
+    font: 500 16px/1 var(--display); text-decoration: none;
+  }
+  .cta:hover { filter: brightness(1.06); }
+
+  .note {
+    background: var(--surface); border-radius: 10px; padding: 17px 19px;
+    margin-top: 20px; font-size: 15.5px;
+  }
+  .note p { margin: 0; }
+  .note p + p { margin-top: 9px; }
+  .note strong { font-weight: 600; }
+
+  footer {
+    margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--hairline);
+    color: var(--muted); font-size: 15.5px; display: grid; gap: 10px;
+  }
+
+  @media (max-width: 560px) {
+    .facts { grid-template-columns: 1fr; }
+    ol.steps > li { grid-template-columns: 28px 1fr; gap: 12px; }
+    ol.steps > li::before { height: 28px; line-height: 28px; font-size: 13px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow"><b>Deebugging.life</b> <span>/</span> <span>Comment: BUILD</span></div>
+  <h1>A text to your house, every Sunday morning.</h1>
+  <p class="lede">It reads your calendars and the school inbox, writes the week, checks its own work, and sends it. You write <span class="mark">no code at all</span>.</p>
+  <dl class="facts">
+    <div><dt>Set aside</dt><dd>A day</dd></div>
+    <div><dt>Costs to run</dt><dd>About US$20 a month</dd></div>
+    <div><dt>Code you write</dt><dd>None</dd></div>
+  </dl>
+</header>
+
+<section>
+  <h2>What arrives</h2>
+  <p class="sub">This is the text. The email version is the archive, for when somebody asks what it said about Thursday.</p>
+  <div class="msg">
+    <p class="from">Moira Rose &middot; Sunday 10:47</p>
+    <p>Evening, all.</p>
+    <p>Week: Mon 6 to Sun 12 Oct.</p>
+    <p><b>Mon:</b> Both of us home. Swimming 4pm.</p>
+    <p><b>Tue:</b> Parent A in the office. Library books go back today. Guitar 5pm.</p>
+    <p><b>Wed:</b> Both of us in the office, helper on the full morning from 6:45 🙏. Nobody has the 3:15 pickup yet. Sort this one tonight.</p>
+    <p><b>Thu:</b> Home. Excursion form and $14 due today, online.</p>
+    <p><b>Fri:</b> Free dress day, gold coin. Football 4:30pm, far ground.</p>
+    <p><b>Sat:</b> Nothing on.</p>
+    <p><b>Reminders:</b> excursion $14 due Thursday. Free dress Friday, gold coin.</p>
+    <p><b>Radar:</b> term ends Friday week, then two weeks at home.</p>
+  </div>
+  <p style="margin-top:18px">The line that matters is the Wednesday one. Nobody has the 3:15 pickup, and it says so rather than guessing. That is a rule you write, not something the model worked out.</p>
+</section>
+
+<section>
+  <h2>What it costs</h2>
+  <p class="sub">Real numbers, per month, in US dollars, for a household texting three phones.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Thing</th><th>Cost, USD</th></tr></thead>
+      <tbody>
+        <tr><td>Twilio phone number</td><td class="num">$8.25</td></tr>
+        <tr><td>Text messages (about 15 segments per phone, 4.3 Sundays)</td><td class="num">$10.05</td></tr>
+        <tr><td>Anthropic API (one model writes, a cheaper one checks)</td><td class="num">about $1.50</td></tr>
+        <tr><td>GitHub Actions (about 5 minutes a week, free tier is 2,000)</td><td class="num">$0</td></tr>
+        <tr><td>Vercel, for the calendar filter (hobby plan)</td><td class="num">$0</td></tr>
+        <tr><td>Gmail, Google Calendar</td><td class="num">$0</td></tr>
+        <tr class="total"><td>Total</td><td class="num">about $20</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Two phones instead of three brings it to about US$16. <span class="mark">The AI is the cheapest part of this</span>, which surprises everyone. The texts cost six times more than the thinking does.</p>
+  <div class="note">
+    <p><strong>One lever worth knowing.</strong> A single emoji switches a text message to a different encoding, where each billed segment holds 67 characters instead of 153. That roughly doubles the cost of every text you send.</p>
+    <p>Keep them for the two or three that carry real meaning, or drop them from the text and keep them in the email, which costs nothing either way.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What you need first</h2>
+  <p class="sub">One thing to install, then a handful of accounts. Nothing here is hard, but every one of them will ask you to verify an email address.</p>
+
+  <h3>Node, which runs the program</h3>
+  <p>The digest is a small program, and Node is the free thing that runs it on your computer. You install it once and then never think about it again.</p>
+
+  <p><strong>Open a terminal.</strong> On a Mac, press Command and Space together, type <code>Terminal</code>, press Enter. On Windows, press Start, type <code>PowerShell</code>, press Enter. A window opens with a blinking cursor. That is all a terminal is.</p>
+
+  <p><strong>Type this and press Enter:</strong></p>
+  <pre>node --version</pre>
+
+  <p>One of three things comes back.</p>
+
+  <div class="scroll">
+    <table>
+      <tbody>
+        <tr><td><code>v20.12</code> or anything higher<br><span style="color:var(--muted)">v22, v24 and so on</span></td><td>You are done. Close the terminal and carry on down this page.</td></tr>
+        <tr><td>A lower number<br><span style="color:var(--muted)">v18, v20.9</span></td><td>Install the new one over the top, below. It replaces the old one.</td></tr>
+        <tr><td><code>command not found</code></td><td>Node is not installed yet. Same steps, below.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>To install or update it:</strong> go to <a href="https://nodejs.org">nodejs.org</a> and press the big green button marked LTS, which stands for the boring dependable version and is the one you want. Open the file it downloads and click through the installer, taking every default. Then <span class="mark">close the terminal and open a new one</span>, because an old terminal window keeps looking in the old place. Run <code>node --version</code> again and you should see the new number.</p>
+
+  <div class="note">
+    <p><strong>If a command later fails with</strong> <code>bad option: --env-file-if-exists</code>, this is the cause. It reads like something is badly broken and it only means Node is older than 20.12. Install the LTS version, open a fresh terminal, and run the command again.</p>
+  </div>
+
+  <h3>And these accounts</h3>
+  <div class="scroll">
+    <table>
+      <tbody>
+        <tr><td><strong>GitHub</strong></td><td>Free.</td></tr>
+        <tr><td><strong>Anthropic API key</strong></td><td>From console.anthropic.com. Pay as you go, about US$1.50 a month.</td></tr>
+        <tr><td><strong>Twilio</strong></td><td>With one phone number in your country.</td></tr>
+        <tr><td><strong>Gmail app password</strong></td><td>Not your normal password. A 16-character code you generate for this, and can revoke without changing anything else.</td></tr>
+        <tr><td><strong>Vercel</strong></td><td>Free, and only if you want the school calendar filter.</td></tr>
+        <tr><td><strong>Your calendar's secret iCal address</strong></td><td>Google Calendar: Settings, your calendar, Integrate calendar, "Secret address in iCal format".</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Start here</h2>
+  <p class="sub">You do not have to read the code. Hand the repository to Claude and let it walk you through setup, one step at a time.</p>
+
+  <p><a class="cta" href="https://github.com/deebehan/home-ops-template/generate">Use this template &rarr;</a></p>
+  <p style="margin-top:14px;font-size:15.5px;color:var(--muted)">Make your copy <strong>private</strong>. Your household's routine is about to be written down in it.</p>
+
+  <h3>If you have never used a terminal</h3>
+  <p>Download the repository as a zip, start a chat at claude.ai, attach the zip, and paste the prompt below. Claude reads every file and tells you exactly what to do. When a step needs a command, it gives you the line to copy.</p>
+
+  <h3>If you are willing to install one thing</h3>
+  <p>Install Claude Code, open the folder in it, and paste the same prompt. Claude runs the commands itself, reads the output, and fixes what breaks without you copying anything back and forth.</p>
+
+  <div class="promptbox">
+    <header>
+      <span>The prompt</span>
+      <button class="copy" id="copy-prompt" data-target="prompt">Copy</button>
+    </header>
+    <pre id="prompt">I am setting up this home-ops repository, which sends my household a weekly
+digest by text every Sunday. I have never set up anything like this. Assume no
+technical background and explain any word you would not say out loud to a
+friend.
+
+Before you say anything, read README.md, then CLAUDE.md, then the five files in
+_shared/. Then follow the setup in README.md with me.
+
+How I want you to work with me:
+
+1. One step at a time. Tell me what we are doing and why it matters, give me
+   the exact thing to do, and then stop and wait for me. Do not give me steps 3
+   through 7 at once.
+2. After each step, give me the check from the README and ask me what I see. If
+   what I see is wrong, work out why before we go on. Do not tell me to
+   continue anyway.
+3. Never ask me to paste an API key, a password, a phone number or any secret
+   into this chat. When one is needed, tell me which file or which website
+   field to put it in, and I will do it myself and tell you when it is done.
+4. When we reach the five files in _shared/, interview me about my household
+   instead of making me fill in templates. Ask about who lives here, who does
+   drop-off and pickup, which days people are out, what the standing activities
+   are, which calendars and which email senders matter. Ask a few questions at
+   a time, not thirty. Then write each file for me, show it to me, and change
+   whatever I do not like before we move on.
+5. Tell me what each step costs, in money or in time, before I do it.
+6. Stop before anything sends. The first thing that reaches my family should be
+   something I have read first.
+
+Start by telling me what I will have at the end, what it costs to run per
+month, and the accounts I need to open. Then ask me which of those accounts I
+already have, and we will begin.</pre>
+  </div>
+</section>
+
+<section>
+  <h2>Setup, in order</h2>
+  <p class="sub">Every step ends with something you can check. If the check does not pass, stop, because every later step assumes this one worked.</p>
+
+  <ol class="steps">
+    <li>
+      <div>
+        <h3>Take your copy</h3>
+        <p>Use this template, then create a new repository. Make it private. Clone it to your machine.</p>
+        <div class="check"><b>Check</b><code>ls</code> shows <span class="file">_shared/</span>, <span class="file">stages/</span>, <span class="file">tools/</span>.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Run the built-in test</h3>
+        <p>This reads a fake calendar that ships with the template. No keys, no accounts, nothing sends.</p>
+        <pre>cd tools/digest-runner
+npm install
+npm run gather:test</pre>
+        <div class="check"><b>Check</b>The output names a training session at <strong>5:00 pm</strong>. If it says any other time, stop. That fixture exists to catch one specific timezone bug, and it is telling you the bug is back.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Fill in the five factory files</h3>
+        <p>Open <span class="file">_shared/</span>. Five files, and they are templates rather than examples. Every bracket is yours to replace. If you only skim one, skim <span class="file">sources.md</span>, because it decides what this thing is allowed to read.</p>
+        <div class="check"><b>Check</b>No square brackets left in any of the five.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Set your timezone</h3>
+        <p>The server keeps time in a different zone to your family. This is where you tell it which one is yours.</p>
+        <div class="check"><b>Check</b>The test from step 2 still says 5:00 pm.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Point it at your real calendars</h3>
+        <p>The secret iCal address of your family calendar, and the school one if you have it.</p>
+        <div class="check"><b>Check</b><code>npm run gather:live</code> lists events you recognise. It gathers only, and sends nothing.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Filter the school calendar</h3>
+        <p>Most schools publish one calendar for the entire school. The filter drops everything that is not your year level and hands back a clean feed your calendar subscribes to. Optional, and the rest works without it.</p>
+        <div class="check"><b>Check</b>The filtered month has your child's events and not the whole school's.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Rehearse</h3>
+        <p><code>npm run preview</code> runs the entire Sunday on your real data and stops before sending. Read what it wrote.</p>
+        <div class="check"><b>Check</b>The text describes your actual week, and the file ends with a <code>---VERIFY---</code> section. Ideally it says "No findings."</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Add your secrets to GitHub</h3>
+        <p>Settings, Secrets and variables, Actions. GitHub never shows a secret back to you after you save it, so keep your own copy somewhere safe.</p>
+        <div class="check"><b>Check</b>The names match those in <span class="file">.github/workflows/sunday-digest.yml</span> exactly.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Send one for real</h3>
+        <p>Actions tab, choose "Sunday family digest", press Run workflow. After that it runs itself, late Sunday morning, until you turn it off.</p>
+        <div class="check"><b>Check</b>A text arrives. If it does not, the Actions log names the step that failed and why.</div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>The one rule</h2>
+  <p class="sub">This is the whole difference between a system that improves and a chatbot you argue with every Sunday.</p>
+  <p><span class="mark">Every correction becomes a line in a file. Never a fix to that week's message.</span></p>
+  <p>When the message gets something wrong, the instinct is to retype the line and move on. Do that and you will retype it again next week, and the week after, until you quietly stop using the thing.</p>
+  <p>There are only two places a fix can go, and telling them apart is the skill.</p>
+
+  <h3>A judgment mistake goes in the files</h3>
+  <p>"It attached last week's class photo email to next Monday." The email was sent on a Thursday and said "Monday". No code can decide that, so it becomes one line in <span class="file">rules.md</span>: a day named in an email is relative to the day that email was sent.</p>
+
+  <h3>A machinery mistake goes in the code</h3>
+  <p>"It said football was at 7am. It is at 5pm." No rule fixes a clock. That one goes in <span class="file">tools/</span>, with a test that fails if it ever comes back.</p>
+
+  <p>Sort your own mistakes into those two piles for a month and you will know exactly which half of your system is thinking and which half is plumbing. Most people never find out, because they fix everything in a chat window and the chat forgets.</p>
+</section>
+
+<section>
+  <h2>When it breaks</h2>
+  <p class="sub">It will. Fifteen things broke before this one held.</p>
+  <p><strong>You get a text saying the run failed, with a link.</strong> That is deliberate. A silent missing digest is the worst outcome, because you assume you had a quiet week. Open the link and read the red step.</p>
+  <div class="note">
+    <p><strong>If a push is refused because of the workflow file.</strong> You may see <code>refusing to allow an OAuth App to create or update workflow</code>. It reads like a problem with your account, and it is not. Anything that pushes a change to <span class="file">.github/workflows/</span> needs the workflow scope, and your token does not have it yet.</p>
+    <p>Fix it with <code>gh auth refresh -h github.com -s workflow</code>, then push again. In a browser, a personal access token needs <strong>workflow</strong> ticked alongside <strong>repo</strong>.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What is in the repository</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Folder</th><th>What it holds</th></tr></thead>
+      <tbody>
+        <tr><td><span class="file">_shared/</span></td><td>The factory. Five files, plain English, edited by hand. The rules, the voice, the shape, the household, the sources.</td></tr>
+        <tr><td><span class="file">stages/01_weekly-digest/</span></td><td>The stage contract, and <span class="file">runs/</span>: what actually went out, every week.</td></tr>
+        <tr><td><span class="file">tools/digest-runner/</span></td><td>The Sunday job, the checks, and the eval.</td></tr>
+        <tr><td><span class="file">tools/calendar-filter/</span></td><td>The school calendar filter, deployed separately.</td></tr>
+        <tr><td><span class="file">outputs/</span></td><td>Previews and dry runs. Nothing reads from here.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><span class="file">CLAUDE.md</span> in the root is the map, and it routes you by what just happened. Every folder has a <span class="file">CONTEXT.md</span> explaining itself.</p>
+</section>
+
+<footer>
+  <p><strong>Not ready for a day of this?</strong> The five documents on their own, run by hand in Claude each Sunday, take an afternoon and no code. Comment SUNDAY.</p>
+  <p><strong>Take it and change it.</strong> The repository is MIT licensed: use it, alter it, build something else out of it, no permission needed and no warranty given. It sends messages to your family, so read the first one before anyone else does.</p>
+  <p><a href="https://instagram.com/deebugging">@deebugging</a> &middot; Deebugging.life</p>
+</footer>
+
+</div>
+
+<script>
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.dataset.target);
+      if (!el) return;
+      var done = function () {
+        var was = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(function () { btn.textContent = was; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(el.innerText).then(done, function () {
+          btn.textContent = "Select it and copy";
+        });
+      } else {
+        var r = document.createRange();
+        r.selectNodeContents(el);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+        btn.textContent = "Selected, press copy";
+      }
+    });
+  });
+</script>
