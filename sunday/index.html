@@ -284,8 +284,9 @@ I need five documents at the end:
                         message, the usual week, who normally does drop-off and
                         pickup, what is standing, and what flexes.
 2. sources.md           Which calendars may be read, which mail label or senders
-                        may be read, and who receives the finished message.
-                        Nothing outside this file gets read.
+                        may be read, whether you may look up my local weather,
+                        and who receives the finished message. Nothing outside
+                        this file gets read.
 3. rules.md             What always goes in and what never does. Start me off
                         with sensible defaults and ask which ones I want changed.
 4. voice.md             Who is speaking. Help me pick a character with a real
@@ -303,6 +304,11 @@ How I want you to work with me:
   messy" is not something a system can follow.
 - Facts come from me. Do not invent a name, a time, or a school event to make a
   document look finished. Leave it blank and tell me what is missing.
+- When we get to sources.md, ask me outright: do I want you to look up my local
+  weather forecast when you build the week, and which town is it. If I say yes,
+  name it in sources.md as a source you may read. If I say no, leave weather out
+  of the result completely rather than estimating it. A forecast neither of us
+  looked up is the one invented fact I would actually act on.
 - Never ask me to paste a password or an account key into this chat. Nothing
   here needs one.
 
@@ -350,6 +356,7 @@ Start by asking me about my household.</pre>
 | [Family calendar] | Mon to Sun, plus all-day events for 4 weeks | [what lives on it] |
 | [School calendar] | same | [e.g. already filtered, trust it] |
 | [Mail label] | last 7 days | only the senders below |
+| [Local forecast for [your town]] | the coming week | only if you want weather. Delete this row and weather is left out |
 
 If it is not in this table, the run does not read it.
 
@@ -586,7 +593,7 @@ costs nothing to scroll.
 | 6 | The week at a glance | Monday to Friday, side by side |
 | 7 | The weekend | given its own room |
 | 8 | The desk | one block per child |
-| 9 | Weather | only if `sources.md` names a forecast |
+| 9 | Weather | on if `sources.md` names a forecast, off if it does not. Never invented — see below |
 | 10 | This week's good idea | one small thing that buys back time |
 | 11 | On the horizon | the rest of this month, a glimpse of next |
 | 12 | Footer | what was read, what could not be, and the sign-off |
@@ -634,6 +641,28 @@ Holidays, staff days and public holidays inside the next two weeks are phrased
 as care impact: kids home, who is on.
 
 ---
+
+### Weather — on or off, never invented
+
+Worth having, and worth being strict about. The strip is what turns "futsal
+5:00pm" into "hat and a full water bottle", which is the difference between
+knowing the week and being ready for it. It is also the easiest block here to
+fabricate, because a plausible forecast is easy to write and nobody checks it
+until they are standing in the rain.
+
+Two allowed states, and no third:
+
+- **`sources.md` names a forecast source** — look it up, show the strip, and
+  finish with one "what to bring" line that turns the numbers into actions.
+- **It does not** — leave the whole block out. No strip, no "what to bring", no
+  mention of the weather anywhere on the page.
+
+Never estimate from the season, never reuse last week's, never soften a guess
+with "probably". A forecast nobody looked up is an invented fact, and it is the
+one invented fact people act on.
+
+In the by-hand version the source is the app's own web search, named in
+`sources.md` like anything else.
 
 ## The Verify tag
 
@@ -686,6 +715,11 @@ Never to the prompt. The page is this week's; the files are every week's.</pre>
   <h3>Then, when you want one</h3>
   <div class="say">run the Weekly Rundown</div>
   <p style="margin-top:18px"><strong>run the Sunday</strong> still gives you the text and the email, unchanged. The system is still the Sunday Rundown. Only the page has the new name.</p>
+
+  <h3>The weather, and why to turn it on</h3>
+  <p>The strip across the bottom of the samples is the quietly useful part, and not because of the numbers. It is the line underneath them: hat and a full water bottle Monday, jumper back in the bag Tuesday, a warm layer for the 8:00pm pickup. That is the difference between knowing what the week holds and being ready for it, and it is the sort of thing that otherwise gets remembered in the car.</p>
+  <p><span class="mark">It is off unless you ask for it.</span> A forecast nobody looked up is an invented fact, and it is the one invented fact you would actually act on. So the setup interview asks you outright whether it should look up your local forecast and which town, and your answer goes in <span class="file">sources.md</span> like any other source. Say no and the page leaves weather out completely rather than estimating it.</p>
+  <p>The lookup is your app's own web search. Nothing extra to connect, and no key to pay for.</p>
 
   <h3>The red Verify tags</h3>
   <p>The most useful thing on the page, and worth understanding before your first one. A <strong>Verify</strong> tag means the system found something it refuses to guess at, either two sources disagreeing or a fact you need that nobody published, and it states both readings and what each would cost.</p>
