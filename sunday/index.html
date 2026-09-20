@@ -204,6 +204,10 @@
   </dl>
 </header>
 
+<div class="note">
+  <p><strong>What arrives on Sunday is a text message.</strong> If you would rather sit down once with the whole week on one page, every clash visible before you read a sentence, there is a version that does that. <a href="https://claude.ai/artifact/La7ogL49KkrJ24YmMaXWPN" target="_blank" rel="noopener">Click through four sample families</a>: a shift worker on nights, separated parents with a Friday handover, four kids and a caf&eacute;. None of them is my house. It is the last section on this page, and it is optional.</p>
+</div>
+
 <section>
   <h2>Why documents</h2>
   <p>I have swapped the model underneath my Sunday system twice. Each time the system got better at the same job, because the job was written down in five files and the model was only the thing reading them.</p>
@@ -507,6 +511,193 @@ When I tell you something in the message was wrong, do not rewrite the message. 
   <h2>After a month</h2>
   <p>The message stops being wrong in new ways and starts being wrong in the same two or three ways, which are the ways your household is genuinely ambiguous.</p>
   <p>That is the point at which the automated version is worth a day of your time, and not before. Five filled-in documents and a Sunday habit beat a half-built system that nobody trusts.</p>
+</section>
+
+<section>
+  <h2>The page version</h2>
+  <p class="sub">Optional. Same five documents, one more that describes a layout.</p>
+  <p>The text is what the family reads walking out the door. The page is the one you sit down with on Sunday afternoon: the whole week laid out so a clash is visible before you have read a sentence. <a href="https://claude.ai/artifact/La7ogL49KkrJ24YmMaXWPN" target="_blank" rel="noopener">See the four sample families</a>.</p>
+  <p><span class="mark">Do it last.</span> The page is the same gather wearing a better outfit. If the message is wrong, the page is wrong in colour and takes longer to read. Get the five documents honest first, because a page makes mistakes look authoritative, which is the opposite of what you want while you are still finding them.</p>
+
+  <h3>The sixth document</h3>
+  <p>Add this to the same project, underneath the other five. It is the one document you do not have to fill in: the other five describe your household, so nobody else's will do. This one describes a layout, and a layout is the same for everyone.</p>
+
+  <div class="promptbox">
+    <header>
+      <span>The sixth document</span>
+      <button class="copy" data-target="rundown">Copy</button>
+    </header>
+    <pre id="rundown" class="fixed">=== rundown-template.md ===
+# rundown-template.md
+
+The shape of the page, as `digest-template.md` is the shape of the message.
+
+This is the sixth document, and the only one you do not have to fill in. The
+other five describe your household, so nobody else's will do. This one
+describes a layout, and a layout is the same for everyone. Paste it as it is.
+
+You only need it if you want the page. The text and the email work on five.
+
+---
+
+## What the page is for
+
+The text is what the family reads walking out the door. The email is the
+archive. The page is the one you sit down with once, with a coffee, and it has
+a different job: **a clash should be visible before you have read a sentence.**
+
+Everything below serves that.
+
+---
+
+## Inherited, without exception
+
+Everything in `rules.md` and `voice.md` applies here. The format changed; the
+judgment did not. In particular:
+
+- Never invent a time, date, amount or address. Quote it, or say it is not
+  published.
+- Check for a receipt before asking for money again.
+- A cancelled entry means it is off. Never restore it from the usual routine.
+- An empty mail sweep means there was no mail. It never means invent some.
+- A date named in an email is relative to the day that email was sent.
+- Facts stay plain. The personality goes between them, never on them.
+
+## One thing it does differently
+
+`digest-template.md` allows one line of radar, because a text message has no
+room to be wrong. The page gets a full four-week horizon table instead. A page
+costs nothing to scroll.
+
+---
+
+## The blocks, in order
+
+| # | Block | Job |
+|---|---|---|
+| 1 | Masthead | family name, "Weekly Rundown", the date, the place |
+| 2 | Provenance | what was read, and when |
+| 3 | Greeting | one fresh line, per `voice.md` |
+| 4 | Clashes and decisions | the only block that can ruin the week if skipped |
+| 5 | Already handled | what the week does *not* need from you |
+| 6 | The week at a glance | Monday to Friday, side by side |
+| 7 | The weekend | given its own room |
+| 8 | The desk | one block per child |
+| 9 | Weather | only if `sources.md` names a forecast |
+| 10 | This week's good idea | one small thing that buys back time |
+| 11 | On the horizon | the rest of this month, a glimpse of next |
+| 12 | Footer | what was read, what could not be, and the sign-off |
+
+### Clashes and decisions
+
+Everything else on the page is reference. This block is the reason to build it.
+
+- Walk the school sources first, then hold each item against the family
+  calendar. Two things in the same hour is a clash. Two sources disagreeing
+  about a date is a clash.
+- One row per item: a checkbox, an owner's name, the decision in bold, then
+  the detail that settles it.
+- Name an owner always. "Everyone" is an owner. "Someone" is not.
+- Order by what it costs to get wrong, not by date.
+- Anything that changes the school day — a closure, a room move, medication,
+  buses — goes at the top regardless of date. It affects the morning.
+
+### Already handled
+
+Bookings confirmed, payments receipted, appointments locked. One line each,
+ticked. This is what stops the page reading as a list of demands.
+
+**If nothing qualifies, cut the block.** Never pad it. If the mail sweep did
+not run, say that instead — an unchecked list is not a clear one.
+
+### The week and the weekend
+
+- Monday to Friday as five columns. Each gets a strip naming who is away from
+  home base, then a line answering **who does the morning and who does
+  pick-up**, then the day's events.
+- Name people. "Paul in Sydney", never "away". Never a bare "Home."
+- The weekend names both parents too, day by day. Naming only the one who is
+  travelling leaves the other unaccounted for.
+- Every event keeps its time. An event without its time is an error, not a
+  summary.
+
+### The desk
+
+One block per child: their name, year and school, then what the week actually
+requires of them. Unread mail is worth naming — "Friday's newsletter is
+unread" is a useful sentence.
+
+Holidays, staff days and public holidays inside the next two weeks are phrased
+as care impact: kids home, who is on.
+
+---
+
+## The Verify tag
+
+The page's one invention, and the thing that stops it guessing.
+
+A **Verify** tag means: two sources disagree, or a fact you need is not in any
+source. It goes next to the item, and the item states both readings and what
+each would cost.
+
+> Cast B is listed Tuesday, Wednesday and Thursday. The family calendar only
+> has Wednesday. If he is on Tuesday it sits on top of piano at 5:00pm; if
+> Thursday, football starts at 4:00pm and arrival is 5:30pm. **Verify**
+
+Two rules keep it meaningful:
+
+- **Never tag something the sources settle.** A Verify tag on a known fact
+  teaches you to ignore the tag.
+- **Roughly seven a page, maximum.** Past that it stops meaning "look here".
+
+---
+
+## How it should look
+
+Plain rules, not decoration. You can change all of this; it only has to hold
+together.
+
+- **One self-contained HTML file.** No scripts, no images, nothing to install.
+- **Three typefaces by job:** a tight display face for headings, a plain sans
+  for facts, a handwriting face for margin notes and the sign-off only.
+- **Colour defined once at the top** and reused, so it survives dark mode.
+  Any block with a tint must set its own text colour, or dark mode flips the
+  text and leaves it sitting on the tint.
+- **Heavy rules under the masthead and above the footer.** It should read like
+  a newspaper, because a newspaper is a solved problem.
+- **It must work on a phone.** Five columns become one. No sideways scrolling.
+- **It must print.** Some people put it on the fridge.
+- Two or three handwritten notes on the whole page, each an observation, never
+  a label.
+
+---
+
+## Where a correction goes
+
+Same rule as the other five. A page that gets something wrong sends you here,
+or to `rules.md` if the message would have got it wrong too.
+
+Never to the prompt. The page is this week's; the files are every week's.</pre>
+  </div>
+
+  <h3>Then, when you want one</h3>
+  <div class="say">run the Weekly Rundown</div>
+  <p style="margin-top:18px"><strong>run the Sunday</strong> still gives you the text and the email, unchanged. The system is still the Sunday Rundown. Only the page has the new name.</p>
+
+  <h3>The red Verify tags</h3>
+  <p>The most useful thing on the page, and worth understanding before your first one. A <strong>Verify</strong> tag means the system found something it refuses to guess at, either two sources disagreeing or a fact you need that nobody published, and it states both readings and what each would cost.</p>
+  <div class="note">
+    <p>Cast B is listed Tuesday, Wednesday and Thursday. The family calendar only has Wednesday. If he is on Tuesday it sits on top of piano at 5:00pm; if Thursday, football starts at 4:00pm and arrival is 5:30pm. <strong>Verify</strong></p>
+  </div>
+  <p>That is not the system failing. That is the system finding the thing you would otherwise have discovered on Tuesday at 5:25pm.</p>
+  <p>Six or seven of them means it is working. Twenty means <span class="file">household.md</span> is vague. None, on a busy week, means it guessed, and that is worth checking rather than enjoying.</p>
+
+  <h3>When the page is wrong</h3>
+  <p>Same rule, one more file. A block in the wrong order, missing, or too long goes in <span class="file">rundown-template.md</span>. A bad call about what mattered still goes in <span class="file">rules.md</span>. Never fix the page.</p>
+
+  <div class="note">
+    <p><strong>It is a page about your children.</strong> Their names, their schools, where they are on which afternoon, and which nights the house has one adult in it. If you publish it to get a link, keep that link to yourself and share it deliberately.</p>
+  </div>
 </section>
 
 <section>
