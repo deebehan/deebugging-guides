@@ -1,275 +1,359 @@
-<title>The Five Documents</title>
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Sunday Rundown: five documents and a Sunday habit</title>
+<meta name="description" content="A weekly message that tells your household what is coming up. No code, nothing to install. Five documents, written by interview, run by hand every Sunday.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Caveat:wght@700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ground: #FFFDF9;
-    --surface: #FFF1E6;
-    --surface-2: #F3FAFA;
-    --ink: #1F1A1D;
-    --muted: #6E645C;
-    --faint: #9A8F86;
-    --hairline: #E9DDD1;
-    --accent: #A2EDEB;
-    --accent-deep: #0F7D83;
+:root{
+  --paper:#E9EDF0; --card:#FFFFFF; --ink:#1E242C; --muted:#56606D;
+  --pop:#2E7D5B; --pop-ink:#FFFFFF; --hi:#FBE27A; --soft:#FBF0C2; --mint:#D5E8DD;
+  --alert:#B3261E; --alert-soft:#FADFDB; --line:rgba(0,0,0,.16);
+  --head:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --hand:"Caveat","Bradley Hand",cursive;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:16px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.55}
+a{color:inherit; text-decoration-thickness:2px; text-underline-offset:3px; text-decoration-color:var(--pop)}
+a:hover{background:var(--hi)}
+:focus-visible{outline:3px solid var(--pop); outline-offset:3px}
+h1,h2,h3{font-family:var(--head); line-height:1.03; margin:0; font-stretch:80%}
+p{margin:0 0 1em}
+.wrap{max-width:1120px; margin:0 auto; padding:0 20px}
+.read{max-width:68ch}
+.hand{font-family:var(--hand); font-weight:700; line-height:1.05}
+.tag{display:inline-block; font-size:12px; font-weight:700; padding:1px 8px; border-radius:99px; border:1.5px solid var(--alert); color:var(--alert); background:var(--alert-soft); white-space:nowrap; vertical-align:2px}
 
-    --display: "Rubik", "Helvetica Neue", Arial, sans-serif;
-    --body: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground: #131719;
-      --surface: #1C2124;
-      --surface-2: #171D1F;
-      --ink: #EFF1F0;
-      --muted: #A0A8A7;
-      --faint: #74807F;
-      --hairline: #2A3234;
-      --accent: #A2EDEB;
-      --accent-deep: #8FE2E0;
-    }
-  }
-  :root[data-theme="dark"] {
-    --ground: #131719;
-    --surface: #1C2124;
-    --surface-2: #171D1F;
-    --ink: #EFF1F0;
-    --muted: #A0A8A7;
-    --faint: #74807F;
-    --hairline: #2A3234;
-    --accent: #A2EDEB;
-    --accent-deep: #8FE2E0;
-  }
+/* top line */
+.top{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:14px 0; font-size:14px; font-weight:600}
+.top a{text-decoration:none}
 
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--ground);
-    color: var(--ink);
-    font: 400 17px/1.65 var(--body);
-    -webkit-font-smoothing: antialiased;
-    padding-inline: 22px;
-    padding-block: 0 96px;
-  }
-  .wrap { max-width: 720px; margin: 0 auto; }
-  p, li { max-width: 66ch; }
+/* hero */
+.hero{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:36px; align-items:end; border-bottom:4px solid var(--ink); padding:18px 0 30px}
+.hero h1{font-size:clamp(44px,6.6vw,86px); font-weight:800; font-stretch:75%; letter-spacing:-.025em}
+.hero .lede{font-size:20px; margin:20px 0 0; max-width:46ch}
+.facts{display:grid; grid-template-columns:repeat(3,auto); justify-content:start; gap:0; margin:26px 0 0; border:1.5px solid var(--ink); background:var(--card); width:fit-content; max-width:100%}
+.facts div{padding:10px 16px; border-left:1px solid var(--line); font-size:13.5px; color:var(--muted)}
+.facts div:first-child{border-left:0}
+.facts b{display:block; font-family:var(--head); font-size:21px; font-weight:800; color:var(--ink); line-height:1.1}
+.tested{font-size:14.5px; color:var(--muted); margin:14px 0 0; max-width:52ch}
+.tested strong{color:var(--ink)}
+.sample{position:relative; background:var(--card); border:1.5px solid var(--ink); padding:18px; font-size:14px; line-height:1.45; transform:rotate(1.2deg)}
+.sample .datetab{position:absolute; top:-22px; right:-10px; background:var(--pop); color:var(--pop-ink); padding:8px 12px; font-weight:600; font-size:12.5px; text-align:right; transform:rotate(2deg)}
+.sample .datetab b{display:block; font-family:var(--head); font-size:19px; font-weight:800; line-height:1.05}
+.sample h2{font-size:26px; font-weight:800; padding-right:96px}
+.sample .sub{color:var(--muted); font-size:13px; margin:4px 0 10px}
+.todo{list-style:none; margin:0; padding:0}
+.todo li{display:grid; grid-template-columns:20px 52px 1fr; gap:9px; padding:9px 0; border-top:1px solid var(--line)}
+.todo .box{width:15px; height:15px; border:1.5px solid var(--ink); margin-top:3px}
+.todo .who{font-weight:700; font-size:13px}
+.sample .note{font-size:24px; display:inline-block; transform:rotate(-3deg); margin-top:8px}
+.shots{position:relative; display:grid; grid-template-columns:1fr 1fr; gap:0; padding:0 6px}
+.shot{display:block; border:1.5px solid var(--ink); background:var(--card); aspect-ratio:3/4.4; overflow:hidden; box-shadow:6px 6px 0 var(--ink)}
+.shot:hover{background:var(--card)}
+.shot img{display:block; width:100%; height:100%; object-fit:cover; object-position:top center}
+.shot.one{z-index:2; position:relative}
+.shot.two{transform:translate(-14px,26px)}
+.shot.empty{display:grid; place-items:center; border-style:dashed; color:var(--muted); font-size:14px; text-decoration:none; box-shadow:none}
+.sample-cap{font-size:13.5px; color:var(--muted); margin:40px 0 0}
 
-  header.mast { padding-block: 64px 40px; display: grid; gap: 18px; }
-  .eyebrow {
-    font: 500 12.5px/1 var(--body);
-    letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
-    display: flex; gap: 10px; align-items: center;
-  }
-  .eyebrow b { color: var(--ink); font-weight: 600; }
-  h1 {
-    font: 700 clamp(38px, 8vw, 58px)/1.04 var(--display);
-    letter-spacing: -.022em; margin: 0; text-wrap: balance;
-  }
-  .lede { font-size: 20px; color: var(--muted); margin: 0; max-width: 36ch; }
+/* the path: borrows the rundown's week grid */
+.path{margin:34px 0 0}
+.path h2{font-size:30px; font-weight:800; margin-bottom:12px}
+.week{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1.5px solid var(--ink); background:var(--card)}
+.day{border-left:1px solid var(--line); display:flex; flex-direction:column; text-decoration:none}
+.day:first-child{border-left:0}
+.day:hover{background:var(--card)}
+.day:hover header b{background:var(--hi)}
+.day header{padding:9px 12px; border-bottom:1.5px solid var(--ink); min-height:88px}
+.day header b{font-family:var(--head); font-size:21px; font-weight:800; display:inline; line-height:1.1}
+.day header span{display:block; font-size:12.5px; color:var(--muted)}
+.day .strip{font-size:12.5px; font-weight:600; padding:5px 12px; background:var(--soft); border-bottom:1px solid var(--line)}
+.day p{padding:10px 12px 14px; margin:0; font-size:14.5px; line-height:1.45}
 
-  .mark {
-    background: var(--accent); color: #1F1A1D;
-    padding: .08em .3em; border-radius: 4px;
-    box-decoration-break: clone; -webkit-box-decoration-break: clone;
-    font-weight: 600;
-  }
+/* sections */
+section.part{padding:54px 0 0}
+.part > .wrap > h2, .part h2.big{font-size:clamp(30px,4.4vw,46px); font-weight:800; margin-bottom:16px}
+.part h3{font-size:23px; font-weight:800; margin:34px 0 10px}
+.step{display:grid; grid-template-columns:96px minmax(0,1fr); gap:0 24px; border-top:4px solid var(--ink); padding-top:18px}
+.step.plain{border-top:0; padding-top:0}
+.step .num{font-family:var(--head); font-weight:800; font-stretch:75%; font-size:88px; line-height:.85}
+.step .when{display:inline-block; background:var(--soft); border:1.5px solid var(--ink); font-size:13px; font-weight:600; padding:3px 10px; margin:0 0 14px}
+.aside{border-left:4px solid var(--ink); padding:2px 0 2px 16px; margin:22px 0}
+.aside p:last-child{margin-bottom:0}
+.block{background:var(--card); border:1.5px solid var(--ink); padding:18px; margin:22px 0}
+.block.warn{background:var(--alert-soft); border-color:var(--alert)}
+.block.mint{background:var(--mint)} .block.soft{background:var(--soft)}
+.block h3{margin-top:0}
+.block p:last-child, .block ol:last-child, .block ul:last-child{margin-bottom:0}
+ol,ul{padding-left:22px; margin:0 0 1em} li{margin-bottom:6px}
+.five{list-style:none; padding:0; margin:18px 0; border:1.5px solid var(--ink); background:var(--card)}
+.five li{display:grid; grid-template-columns:minmax(0,210px) minmax(0,1fr); gap:6px 18px; padding:13px 16px; border-top:1px solid var(--line); margin:0}
+.five li:first-child{border-top:0}
+.five b{font-family:var(--head); font-size:19px; font-weight:800}
+.five span{display:block; color:var(--muted); font-size:14.5px}
+.say{font-family:var(--head); font-weight:800; font-size:clamp(30px,5vw,52px); background:var(--hi); display:inline-block; padding:4px 16px 8px; border:1.5px solid var(--ink); margin:6px 0 18px}
+.tablewrap{overflow-x:auto; margin:18px 0}
+table{border-collapse:collapse; width:100%; background:var(--card); border:1.5px solid var(--ink); font-size:15.5px}
+th,td{text-align:left; padding:10px 14px; border-top:1px solid var(--line); vertical-align:top}
+th{font-family:var(--head); font-size:16px; border-top:0; border-bottom:1.5px solid var(--ink)}
+td:last-child{font-weight:700; white-space:nowrap}
 
-  .facts {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-    background: var(--hairline); border: 1px solid var(--hairline);
-    border-radius: 10px; overflow: hidden;
-  }
-  .facts > div { background: var(--ground); padding: 16px 18px; }
-  .facts dt {
-    font: 500 11.5px/1 var(--body); letter-spacing: .12em;
-    text-transform: uppercase; color: var(--faint); margin-bottom: 7px;
-  }
-  .facts dd { margin: 0; font: 500 17px/1.3 var(--display); }
+/* copyable documents */
+.doc{border:1.5px solid var(--ink); background:var(--card); margin:18px 0 22px}
+.dochead{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 16px}
+.dochead strong{font-family:var(--head); font-size:20px; font-weight:800; display:block; line-height:1.15}
+.dochead span{font-size:13.5px; color:var(--muted)}
+.copy,.btn{font:inherit; font-weight:700; font-size:15px; background:var(--ink); color:#fff; border:1.5px solid var(--ink); padding:9px 18px; cursor:pointer; text-decoration:none; display:inline-block; white-space:nowrap}
+.copy:hover,.btn:hover{background:var(--pop); border-color:var(--pop); color:#fff}
+.copy.done{background:var(--pop); border-color:var(--pop)}
+.btn.ghost{background:transparent; color:var(--ink)}
+.doc details{border-top:1px solid var(--line)}
+.doc summary{cursor:pointer; padding:9px 16px; font-size:14px; font-weight:600; color:var(--muted)}
+.doc pre{margin:0; padding:16px; border-top:1px solid var(--line); background:#F6F8F9; font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; white-space:pre-wrap; overflow-wrap:anywhere; max-height:520px; overflow:auto}
+.btnrow{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0}
 
-  section { padding-top: 54px; }
-  h2 {
-    font: 700 27px/1.2 var(--display); letter-spacing: -.015em;
-    margin: 0 0 6px; text-wrap: balance;
-    border-top: 1px solid var(--hairline); padding-top: 26px;
-  }
-  h2 + .sub { color: var(--muted); margin: 0 0 22px; }
-  h3 { font: 600 18px/1.35 var(--display); margin: 28px 0 6px; }
-  a { color: inherit; text-decoration-color: var(--accent-deep); text-underline-offset: 3px; }
-  a:hover { text-decoration-thickness: 2px; }
 
-  /* the five, numbered because the fill order is real */
-  ol.files { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: f; }
-  ol.files > li {
-    counter-increment: f; display: grid; grid-template-columns: 30px 1fr; gap: 16px;
-    padding: 20px 0; border-bottom: 1px solid var(--hairline);
-  }
-  ol.files > li:first-child { border-top: 1px solid var(--hairline); }
-  ol.files > li::before {
-    content: counter(f);
-    font: 500 14px/30px var(--mono); text-align: center;
-    height: 30px; border-radius: 7px;
-    background: var(--accent); color: #1F1A1D;
-  }
-  ol.files .name { font: 500 15.5px/1.4 var(--mono); color: var(--accent-deep); }
-  ol.files .holds { margin: 5px 0 0; font-weight: 500; }
-  ol.files .why { margin: 4px 0 0; color: var(--muted); font-size: 15.5px; }
+footer.end{margin-top:64px; border-top:4px solid var(--ink); padding:18px 0 50px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:end}
+footer.end p{font-size:14.5px; color:var(--muted); margin:0 0 8px; max-width:70ch}
+footer.end .sign{font-size:32px}
 
-  .scroll { overflow-x: auto; margin-block: 18px; }
-  table { border-collapse: collapse; width: 100%; font-size: 15.5px; min-width: 420px; }
-  th, td { text-align: left; padding: 11px 14px 11px 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
-  th {
-    font: 500 11.5px/1 var(--body); letter-spacing: .1em;
-    text-transform: uppercase; color: var(--faint); padding-bottom: 9px;
-  }
-  code, .file { font: 500 .88em/1.5 var(--mono); color: var(--accent-deep); }
-
-  ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 26px; counter-reset: s; }
-  ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 16px; }
-  ol.steps > li::before {
-    content: counter(s);
-    font: 500 15px/34px var(--mono); text-align: center;
-    height: 34px; border-radius: 8px;
-    background: var(--accent); color: #1F1A1D;
-  }
-  ol.steps p { margin: 0; }
-
-  .promptbox { border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; margin-top: 18px; }
-  .promptbox header {
-    display: flex; align-items: center; justify-content: space-between; gap: 14px;
-    padding: 11px 14px; background: var(--surface); border-bottom: 1px solid var(--hairline);
-  }
-  .promptbox header span {
-    font: 500 11.5px/1 var(--body); letter-spacing: .12em;
-    text-transform: uppercase; color: var(--muted);
-  }
-  .promptbox pre {
-    margin: 0; background: var(--surface-2); padding: 16px 18px;
-    font: 400 14.5px/1.65 var(--body); white-space: pre-wrap; overflow-x: auto;
-  }
-  /* the prompt and the templates hold aligned columns and a table, so they keep
-     a mono face and their own line breaks, and scroll rather than wrap */
-  .promptbox pre.fixed {
-    font: 400 13.5px/1.6 var(--mono); white-space: pre;
-    max-height: 400px; overflow: auto;
-  }
-  button.copy {
-    font: 500 13px/1 var(--body); color: #1F1A1D; background: var(--accent);
-    border: 0; border-radius: 6px; padding: 8px 13px; cursor: pointer;
-  }
-  button.copy:hover { filter: brightness(1.04); }
-  button.copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-
-  .say {
-    background: var(--surface-2); border: 1px solid var(--hairline);
-    border-radius: 10px; padding: 18px 20px; margin-top: 16px;
-    font: 500 21px/1.4 var(--mono);
-  }
-
-  .note {
-    background: var(--surface); border-radius: 10px; padding: 17px 19px;
-    margin-top: 20px; font-size: 15.5px;
-  }
-  .note p { margin: 0; }
-  .note p + p { margin-top: 9px; }
-  .note strong { font-weight: 600; }
-
-  footer {
-    margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--hairline);
-    color: var(--muted); font-size: 15.5px; display: grid; gap: 10px;
-  }
-
-  @media (max-width: 560px) {
-    .facts { grid-template-columns: 1fr; }
-    ol.steps > li, ol.files > li { grid-template-columns: 28px 1fr; gap: 12px; }
-    ol.steps > li::before { height: 28px; line-height: 28px; font-size: 13px; }
-    ol.files > li::before { height: 28px; line-height: 28px; font-size: 13px; }
-    .say { font-size: 18px; }
-  }
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (max-width:860px){
+  .hero{grid-template-columns:minmax(0,1fr); gap:44px}
+  .shot.two{transform:translate(-8px,16px)}
+  .week{grid-template-columns:minmax(0,1fr)}
+  .day header{min-height:0}
+  .day{border-left:0; border-top:1.5px solid var(--ink)} .day:first-child{border-top:0}
+  .step{grid-template-columns:minmax(0,1fr)} .step .num{font-size:60px; margin-bottom:8px}
+  .five li{grid-template-columns:minmax(0,1fr)}
+  .facts{grid-template-columns:minmax(0,1fr); width:100%} .facts div{border-left:0; border-top:1px solid var(--line)} .facts div:first-child{border-top:0}
+  footer.end{grid-template-columns:minmax(0,1fr)}
+  td:last-child{white-space:normal}
+}
 </style>
-
+</head>
+<body>
 <div class="wrap">
 
-<header class="mast">
-  <div class="eyebrow"><b>Deebugging.life</b> <span>/</span> <span>Comment: SUNDAY</span></div>
-  <h1>The AI is not the asset. These are.</h1>
-  <p class="lede">It reads your calendars and the school inbox, writes the week, and hands it to you. <span class="mark">You are the check</span>, and there is nothing to install.</p>
-  <dl class="facts">
-    <div><dt>Set aside</dt><dd>An afternoon</dd></div>
-    <div><dt>Your running costs</dt><dd>Nothing extra</dd></div>
-    <div><dt>You need</dt><dd>Claude or ChatGPT</dd></div>
-  </dl>
-</header>
+  <div class="top"><a href="https://deebugging.life/">Deebugging.life</a><span>Comment: SUNDAY</span></div>
 
-<div class="note">
-  <p><strong>You get the week in whichever shape is useful, and all of it runs in this same project.</strong> A summary short enough to text to anyone who needs it. A longer written version to keep. And a full Weekly Rundown page you can print and stick on the fridge if that is your jam, leave open in a browser tab to come back to, or send to whoever else is doing the driving. <a href="https://claude.ai/artifact/La7ogL49KkrJ24YmMaXWPN" target="_blank" rel="noopener">Click through four sample families</a> to see the page &mdash; a shift worker on nights, separated parents with a Friday handover, four kids and a caf&eacute;. None of them is my house. It is the last section here, and it needs nothing you have not already set up.</p>
+  <header class="hero">
+    <div>
+      <h1>The AI is not the asset. These are.</h1>
+      <p class="lede">Five documents about your household. An AI reads your calendars and the school inbox, writes the week, and hands it to you. You are the check, and there is nothing to install.</p>
+      <div class="facts">
+        <div><b>An afternoon</b>to set aside</div>
+        <div><b>Nothing extra</b>to run it</div>
+        <div><b>Claude or ChatGPT</b>is all you need</div>
+      </div>
+      <p class="tested"><strong>Tested end to end in Claude,</strong> including reading a Google Family calendar and a subscribed school calendar. The documents are plain words, so they carry to ChatGPT, with <a href="#chatgpt">one thing to check first</a>.</p>
+    </div>
+    <div>
+      <div class="shots">
+        <a class="shot one" href="img/weekly-rundown-marrickville.jpg"><img src="img/weekly-rundown-marrickville-hero.jpg" srcset="img/weekly-rundown-marrickville-hero.jpg 1x, img/weekly-rundown-marrickville-hero@2x.jpg 2x" width="400" height="869" alt="Sample Weekly Rundown page for a made-up family in Marrickville: masthead, a list of clashes and decisions with owners and Verify tags, then the week laid out Monday to Friday."></a>
+        <a class="shot two" href="img/weekly-rundown-cronulla.jpg"><img src="img/weekly-rundown-cronulla-hero.jpg" srcset="img/weekly-rundown-cronulla-hero.jpg 1x, img/weekly-rundown-cronulla-hero@2x.jpg 2x" width="400" height="762" alt="Sample Weekly Rundown page for a made-up family in Cronulla, in a different colour."></a>
+      </div>
+      <p class="sample-cap">Made-up families, not my house. <a href="https://claude.ai/artifact/La7ogL49KkrJ24YmMaXWPN">Click through four sample families</a>: a shift worker on nights, separated parents with a Friday handover, four kids and a café.</p>
+    </div>
+  </header>
+
+  <nav class="path" aria-label="The four steps">
+    <h2>The afternoon, in four parts</h2>
+    <div class="week">
+      <a class="day" href="#setup"><header><b>1. Set up</b><span>family calendar, school calendar, school label</span></header><div class="strip">20 minutes. On a computer, not a phone.</div><p>An AI walks you through Google Family, the school calendar and a Gmail label one click at a time, then hands you a short summary to keep.</p></a>
+      <a class="day" href="#five"><header><b>2. Get interviewed</b><span>five documents, or six if you want the page</span></header><div class="strip">About an hour. Any device.</div><p>One prompt. It asks about your house a few questions at a time and writes all five for you. The sixth is ready-made: you paste it, you do not write it.</p></a>
+      <a class="day" href="#project"><header><b>3. Make the project</b><span>one home for the five</span></header><div class="strip">10 minutes.</div><p>Paste one short set of instructions, add your documents as files, check calendar and mail are connected.</p></a>
+      <a class="day" href="#sunday"><header><b>4. Run it</b><span>every Sunday</span></header><div class="strip">Three words, then you read it.</div><p>You get a summary in your chat, or a full page for the fridge or to view in your browser. Same documents behind both.</p></a>
+    </div>
+  </nav>
 </div>
 
-<section>
-  <h2>Why documents</h2>
+<section class="part" id="why"><div class="wrap"><div class="step plain">
+  <div aria-hidden="true"></div>
+  <div class="read">
+  <h2 class="big">Why documents</h2>
   <p>I have swapped the model underneath my Sunday system twice. Each time the system got better at the same job, because the job was written down in five files and the model was only the thing reading them.</p>
-  <p><span class="mark">Swap the files and you have a different system. Swap the model and you have the same system, slightly sharper.</span></p>
-  <p>So this is the part worth your afternoon.</p>
-</section>
+  <p>Swap the files and you have a different system. Swap the model and you have the same system, slightly sharper. So this is the part worth your afternoon.</p>
+</div>
+</div></div></section>
 
-<section>
-  <h2>The five</h2>
-  <p class="sub">Fill them in this order. The first two take about twenty minutes between them. The other three are mostly choosing.</p>
-  <ol class="files">
-    <li>
-      <div>
-        <div class="name">household.md</div>
-        <p class="holds">Who is in the house, the usual week, how "away" is marked.</p>
-        <p class="why">Turns a calendar readout into a briefing that knows nobody has Wednesday's pickup.</p>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="name">sources.md</div>
-        <p class="holds">Exactly what may be read, and who receives the result.</p>
-        <p class="why">The trust document. If it is not named here, it is not read.</p>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="name">rules.md</div>
-        <p class="holds">The judgment. What always goes in, what never does.</p>
-        <p class="why">The file that grows. Every line is a mistake that cannot happen twice.</p>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="name">voice.md</div>
-        <p class="holds">The register, the greeting, the sign-off, where a joke may go.</p>
-        <p class="why">An unread message is worse than no message.</p>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="name">digest-template.md</div>
-        <p class="holds">The shape. Day by day, then what to remember, then one line of radar.</p>
-        <p class="why">The message is what the family reads. Everything else is archive.</p>
-      </div>
-    </li>
-  </ol>
-  <p>You do not need to finish them to start. A half-filled <span class="file">rules.md</span> with three lines in it works on the first Sunday, and that is how it is supposed to go, because the rest of the lines get written by being wrong.</p>
-</section>
+<section class="part" id="setup"><div class="wrap"><div class="step">
+  <div class="num" aria-hidden="true">1</div>
+  <div class="read">
+    <h2 class="big">Set up the calendars and the label</h2>
+    <span class="when">20 minutes. Do this one on a computer.</span>
+    <p>The system can only read what exists. Before the interview you need three things: a family calendar the other adults can see, the school's calendar showing inside yours if the school lets it out, and a Gmail label that catches the school emails. If you already have them, this takes five minutes and only checks they are set up right.</p>
+    <p><strong>Use a Google Family group.</strong> It is what I did, and it was far easier than building a shared calendar by hand: make the group and a calendar called Family appears for everyone in it. People who do not belong in the group, like a nanny, a grandparent or the other parent in a separate household, can be given the Family calendar on its own. The prompt asks about each person.</p>
+    <p><strong>The school calendar is the unknown.</strong> Some schools publish a link you can subscribe to. Some keep it inside an app, or only in a PDF. The prompt helps you find out which you have, connects it if it can be connected, and tells you plainly if it cannot. Nothing here needs code, so if it cannot be subscribed to, your dates come from the school emails.</p>
+    <p>Paste this into an ordinary Claude or ChatGPT chat. It walks you through one click at a time, waits for you, and finishes by handing you a short block called SETUP SUMMARY. Keep it. The interview asks for it.</p>
+    <div class="doc" id="p-setup">
+  <div class="dochead"><div><strong>The setup prompt</strong><span>Google Family, the school calendar, the Gmail label, weather. Ends with your SETUP SUMMARY.</span></div><button type="button" class="copy" data-target="p-setup-text">Copy</button></div>
+  <details><summary>Read it before you paste it</summary><pre id="p-setup-text">I am setting up a weekly family message that an AI will write from my calendar
+and my school emails. Before that can work I need four things in place, and I
+want you to walk me through them. I am not technical.
 
-<section>
-  <h2>Getting the five written</h2>
-  <p class="sub">You do not have to fill in templates. Paste one prompt into an ordinary Claude chat and it will interview you about your household and write all five for you.</p>
+1. A Google Family group and its Family calendar, which the other adults in my
+   house can see and add to.
+2. My school&#x27;s calendar showing inside my Google Calendar, if the school
+   publishes one that can be subscribed to.
+3. A label in Gmail that catches the school emails (and the club, the
+   childminder, whoever sends me dates and bills), so that is where you look.
+4. A decision on weather: whether you should look up my local forecast each
+   week, and for which town.
 
-  <p>Do this in a <strong>normal chat</strong>, not in the project. Only the finished documents go in the project, because instructions with blanks still in them make the system invent things to fill the gaps.</p>
+HOW I WANT YOU TO WORK WITH ME
 
-  <div class="promptbox">
-    <header>
-      <span>The setup prompt</span>
-      <button class="copy" data-target="setup">Copy</button>
-    </header>
-    <pre id="setup" class="fixed">I want a weekly message that tells my household what is coming up: who is out,
+- First ask what I am on, phone or computer. Some of this can only be done in
+  a browser on a computer. If that is true for a step, tell me before I start
+  it, not halfway through.
+- Look up Google&#x27;s current help pages before giving me steps. Menus move. Do
+  not describe a button from memory.
+- One step at a time. Tell me what to click, then wait for me to say done. Do
+  not give me a long list of future instructions.
+- If I say I cannot see it, ask what I can see, or ask for a screenshot. Do not
+  repeat the same instruction.
+- Ask before you assume. I may already have a Google Family group, a Family
+  calendar, a school calendar or a school label. If I do, check it is set up
+  right rather than making a second one.
+
+GOOGLE FAMILY AND THE FAMILY CALENDAR
+
+- First check whether I already belong to a Google Family group. If I do, look
+  at what is already there before creating anything.
+- If I do not, help me create one using Google&#x27;s current Family setup. Before
+  I invite anyone, look up and tell me in plain words what joining a Family
+  group involves for them: how many people it holds, anything else it shares
+  besides the calendar, and any limit on leaving or switching groups.
+- Use Google&#x27;s own Family calendar as the starting point. Do not create a
+  separate calendar with our family name if the Family calendar is available.
+- Ask me who needs to see the calendar, one person at a time, and for each one
+  ask whether they belong in the Family group or only need the calendar. A
+  partner usually belongs in the group. A nanny, an au pair, a grandparent, or
+  the other parent in a separate household may not: they may already be in
+  their own Family group, or it may simply be the wrong relationship. For
+  those people, look up how to share the Family calendar with someone outside
+  the group, and do that instead.
+- Explain who will have access to the Family calendar and what each of them
+  can do: see, add, change, delete. If the adults need different levels of
+  access, explain the options before changing anything.
+- Check the Family calendar exists and is visible in my Google Calendar.
+
+THE SCHOOL CALENDAR
+
+- Ask me which schools, daycares or clubs publish dates, one at a time.
+- Do not assume how they publish. Help me find out which of these it is:
+    a link I can subscribe to (it often says &quot;subscribe&quot;, &quot;iCal&quot;, &quot;ICS&quot; or
+    &quot;add to calendar&quot;, or the link starts with webcal or ends in .ics)
+    a Google calendar with an add button
+    a school app that holds the calendar and does not let it out
+    a PDF or a page on the website, and nothing else
+- If I find a link, ask me to paste it and tell me whether it looks like one I
+  can subscribe to. A school&#x27;s public calendar link is fine to paste. Never
+  ask me to paste the private or &quot;secret&quot; address of my own calendar.
+- If it can be subscribed to, walk me through adding it to Google Calendar by
+  its link. Tell me beforehand that Google updates subscribed calendars slowly,
+  so a change at the school can take a day or so to reach me.
+- If it cannot be subscribed to, say so plainly and do not invent a workaround
+  that needs code. Tell me my choices: rely on the school emails under my
+  label for dates, or add each term&#x27;s key dates to the Family calendar by hand
+  once a term. Ask which I want.
+
+GMAIL LABEL AND FILTER
+
+- First check whether I already have a suitable label. If I do, use it.
+- Otherwise help me make one, then make a filter so new mail from those
+  senders is labelled on its own.
+- Ask me who the senders are before creating the filter. If I do not know the
+  addresses, show me how to find them from an email I already have.
+- Make sure the filter catches those senders without catching unrelated mail.
+- Apply the filter to the last month of existing mail so the first run has
+  something to read.
+- Be honest about what the label does. Once Gmail is connected you are
+  technically able to search my whole mailbox. The label is how I tell you
+  where to look, and looking nowhere else is a rule you follow, not a lock.
+  Tell me that plainly and let me decide whether I am comfortable with it.
+
+WEATHER
+
+Ask me: do you want me to look up the local weather each week, yes or no? If
+yes, which town? Nothing needs to be set up for weather.
+
+CONNECTING GOOGLE TO THIS APP
+
+- When the calendars and the label are ready, walk me through connecting
+  Google Calendar and Gmail in this app&#x27;s settings. Look up this app&#x27;s current
+  instructions first.
+- Never ask me to paste a password, a verification code, an API key or any
+  other secret into this chat. If a step needs one, tell me it happens on
+  Google&#x27;s own sign-in screen and let me do it there.
+- If the connection asks me to choose what to share, explain what is being
+  requested before I approve it.
+
+TEST EVERYTHING
+
+Once connected, read back only these, and nothing else:
+
+- The next three events on the Family calendar.
+- The next three events on the school calendar, if I subscribed to one.
+- The subject lines of the three newest emails under the label.
+
+If any of them comes back empty or wrong, stop and help me fix it before we
+go on. If you can see the Family calendar but not the school one, tell me
+that plainly, because it changes what goes in my sources.
+
+SETUP SUMMARY
+
+At the end, give me one short block headed SETUP SUMMARY that I can copy:
+
+- Exact name of the Family calendar
+- Who is in the Google Family group, and who the calendar is shared with
+  outside it
+- School calendar: its exact name as it shows in Google Calendar, or &quot;none,
+  dates come from email&quot; or &quot;none, added by hand each term&quot;
+- Whether you could read each calendar in the test
+- Exact name of the Gmail label
+- Senders the filter catches
+- Weather: yes or no, and the town
+
+I will paste that block into the interview when it asks about sources.</pre></details>
+</div>
+    <div class="aside">
+      <p><strong>What the label does, honestly.</strong> Once you connect Gmail, the AI is able to search your whole mailbox. The label is how you tell it where to look, and looking nowhere else is a rule it follows, not a lock. That rule is written into your documents twice, and you read every message before it goes anywhere. Decide with that in mind.</p>
+    </div>
+    <div class="aside">
+      <p><strong>Weather is a yes or a no.</strong> If you say yes, the forecast for your town becomes a named source like any other, looked up with the app's own web search. If you say no, weather is left out completely rather than estimated. A forecast nobody looked up is an invented fact, and it is the one invented fact you would actually act on.</p>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="part" id="five"><div class="wrap"><div class="step">
+  <div class="num" aria-hidden="true">2</div>
+  <div class="read">
+    <h2 class="big">Get the five written</h2>
+    <span class="when">About an hour. The first two are the work. The other three are mostly choosing.</span>
+    <ul class="five">
+      <li><b>household.md</b><div>Who is in the house, the usual week, how "away" is marked.<span>Turns a calendar readout into a briefing that knows nobody has Wednesday's pickup.</span></div></li>
+      <li><b>sources.md</b><div>Exactly what may be read, and who receives the result.<span>The trust document. If it is not named here, the run does not go looking for it.</span></div></li>
+      <li><b>rules.md</b><div>The judgment. What always goes in, what never does.<span>The file that grows. Every line is a mistake that cannot happen twice.</span></div></li>
+      <li><b>voice.md</b><div>The register, the greeting, the sign-off, where a joke may go.<span>An unread message is worse than no message.</span></div></li>
+      <li><b>digest-template.md</b><div>The shape of the summary, and whether you want the page as well.<span>The summary is what the family reads. Everything else is archive.</span></div></li>
+    </ul>
+    <p>You do not need to finish them to start. A half-filled rules.md with three lines in it works on the first Sunday, and that is how it is supposed to go, because the rest of the lines get written by being wrong.</p>
+
+    <h3>The easy way: be interviewed</h3>
+    <p>Paste one prompt into an ordinary chat and it will interview you about your household and write all five, as five files to download. Have your SETUP SUMMARY ready.</p>
+    <p>Do this in a <strong>normal chat</strong>, not in the project. Only finished documents go in the project, because a document with blanks still in it makes the system invent things to fill the gaps. Anything you do not know yet gets written as NOT SET, with a line saying what to report instead of guessing.</p>
+    <div class="doc" id="p-interview">
+  <div class="dochead"><div><strong>The interview prompt</strong><span>Asks a few questions at a time. Ends with your five documents as files.</span></div><button type="button" class="copy" data-target="p-interview-text">Copy</button></div>
+  <details><summary>Read it before you paste it</summary><pre id="p-interview-text">I want a weekly message that tells my household what is coming up: who is out,
 who does drop-off and pickup, what is on, and anything that needs money or a
 form. I will run it myself in this app every Sunday. There is no code and
 nothing to install.
@@ -283,50 +367,78 @@ I need five documents at the end:
 1. household.md         Who lives here, what each person is called in the
                         message, the usual week, who normally does drop-off and
                         pickup, what is standing, and what flexes.
-2. sources.md           Which calendars may be read, which mail label or senders
-                        may be read, whether you may look up my local weather,
-                        and who receives the finished message. Nothing outside
-                        this file gets read.
+2. sources.md           Which calendars may be read, each by its exact name,
+                        which mail label may be read, whether you may look up
+                        my local weather, my time zone, and who the week is
+                        written for. Nothing outside this file gets read.
 3. rules.md             What always goes in and what never does. Start me off
                         with sensible defaults and ask which ones I want changed.
 4. voice.md             Who is speaking. Help me pick a character with a real
-                        register, and make sure it does not sound like me. If my
-                        family gets a message that reads as though I wrote it,
-                        that is the wrong outcome.
-5. digest-template.md   The shape: greeting, week label, day by day, a short
-                        reminders tail, sign-off.
+                        register, or make it plainly an AI. Steer me away from
+                        a voice that passes as me, and tell me why: if it reads
+                        as though I wrote it, I am answerable for every line.
+                        But it is my call.
+5. digest-template.md   The shape of the summary you give me in the chat:
+                        greeting, week label, what needs money or a form, day
+                        by day, one line of what is coming, sign-off. And
+                        whether I also want the week as a full page.
 
 How I want you to work with me:
 
 - One document at a time. Interview me for it, write it, show it to me, and
   change whatever I do not like before moving on to the next one.
-- If I give you a vague answer, ask for the specific version. "Tuesdays are
-  messy" is not something a system can follow.
+- For household.md, start by asking me to describe a normal week the way I
+  would tell a new babysitter, all in one go. Then ask only about the holes.
+  Only ask for things that are not written down anywhere. If I say &quot;it is
+  always in the calendar&quot;, accept that and move on.
+- If I give you a vague answer, ask for the specific version. &quot;Tuesdays are
+  messy&quot; is not something a system can follow.
 - Facts come from me. Do not invent a name, a time, or a school event to make a
   document look finished. Leave it blank and tell me what is missing.
-- When we get to sources.md, ask me outright: do I want you to look up my local
-  weather forecast when you build the week, and which town is it. If I say yes,
-  name it in sources.md as a source you may read. If I say no, leave weather out
-  of the result completely rather than estimating it. A forecast neither of us
-  looked up is the one invented fact I would actually act on.
+- When we get to sources.md, ask whether I have a SETUP SUMMARY to paste. If I
+  do, use it and only ask about what it does not cover. If I do not, tell me to
+  go and do the setup first, because you need the exact names.
+- Weather: if my SETUP SUMMARY says yes, name the forecast for that town in
+  sources.md as a source you may read. If it says no, leave weather out of the
+  result completely rather than estimating it. A forecast neither of us looked
+  up is the one invented fact I would actually act on.
+- When we get to digest-template.md, tell me there are two ways to get the
+  week, and ask whether I want one or both:
+    the summary   written here in the chat, short enough to copy into the
+                  family group chat
+    the page      the whole week on one screen, to print for the fridge or
+                  keep open in a browser
+  Write my answer at the top of digest-template.md under &quot;Formats&quot;. If I want
+  the page, ask me three more things and no others: the name for the masthead,
+  the place, and one colour. Do not write the page layout yourself. Tell me it
+  comes from a sixth document I paste in later.
 - Never ask me to paste a password or an account key into this chat. Nothing
   here needs one.
 
-At the end, give me all five documents in one block I can copy, in the order
-above, with a line above each saying which file it is.
+At the end, give me the five documents as five separate files I can download,
+named exactly household.md, sources.md, rules.md, voice.md and
+digest-template.md. I will upload them to a project, so the names matter. If
+this app cannot make files, give me each one in its own copy block with its
+file name above it, and tell me how to save each as a plain text file with
+that name. Any fact I did not give you is written as NOT SET, with a line
+saying what to report instead of guessing.
 
-Start by asking me about my household.</pre>
-  </div>
+Start by asking me about my household.</pre></details>
+</div>
 
-  <h3>Or fill them in yourself</h3>
-  <p>The same five, blank. Replace everything in brackets. The rules are already filled in, because those hold for any household and you only change them once they are wrong for yours.</p>
+    <div class="aside">
+      <p><strong>Who it is for.</strong> Anyone who gets the week should be able to act on it. People who receive it out of politeness stop reading by week three, and then you have a system that is technically working and practically ignored.</p>
+    </div>
+    <div class="aside">
+      <p><strong>Whether it sounds like you.</strong> You decide. But from experience, a weekly rundown that impersonates you makes you answerable for every line in it. This is from an AI. Either have some fun with voice.md, or make it plainly from an AI.</p>
+    </div>
 
-  <div class="promptbox">
-    <header>
-      <span>The five, blank</span>
-      <button class="copy" data-target="templates">Copy</button>
-    </header>
-    <pre id="templates" class="fixed">=== household.md ===
+    <h3>Or fill them in yourself</h3>
+    <p>The same five, blank, are in the <strong>templates</strong> folder of the download, along with everything else on this page. Replace everything in brackets. The rules are already filled in, because those hold for any household and you only change them once they are wrong for yours.</p>
+    <div class="btnrow"><a class="btn" href="sunday-rundown.zip" download>Download all the files</a></div>
+    <div class="doc" id="p-blank">
+  <div class="dochead"><div><strong>The five, blank</strong><span>To read here. Download the files to fill them in.</span></div><button type="button" class="copy" data-target="p-blank-text">Copy</button></div>
+  <details><summary>Read it before you paste it</summary><pre id="p-blank-text">=== household.md ===
 
 ## People
 | Name | Role | Called in the message |
@@ -344,9 +456,8 @@ Start by asking me about my household.</pre>
 - Standing activities: [e.g. Tuesday 5pm swimming, both kids]
 - [What flexes week to week, and who decides]
 
-## How "away" is marked
-- [e.g. an all-day event titled "NAME - OFFICE" means that person is out]
-
+## How &quot;away&quot; is marked
+- [e.g. an all-day event titled &quot;NAME - OFFICE&quot; means that person is out]
 
 === sources.md ===
 
@@ -358,50 +469,75 @@ Start by asking me about my household.</pre>
 | [Mail label] | last 7 days | only the senders below |
 | [Local forecast for [your town]] | the coming week | only if you want weather. Delete this row and weather is left out |
 
-If it is not in this table, the run does not read it.
+If it is not in this table, the run does not read it. That includes any
+calendar not named here, the rest of the mailbox, and the web.
+
+## How to read the calendars
+- Ask for each calendar above BY ITS EXACT NAME. The connection looks at my
+  main calendar unless told otherwise. A run that only looked at the main
+  calendar, when it is not in the table, has read nothing.
+- At the top of every run, state which calendars were actually read and how
+  many events each returned. If a named calendar could not be found or
+  returned nothing, say so before anything else.
+- Times may arrive in UTC. Convert every time to [your time zone, e.g.
+  Australia/Sydney] before writing it, and check the conversion did not move
+  an event to the wrong day.
+- All-day events arrive as dates with no time. Show them as &quot;all day&quot;. Never
+  give them a time.
+- A subscribed school calendar can be 12 to 24 hours behind the school. Say so
+  once, where the sources are listed.
 
 ## Senders worth a label
 - [school office address]
-- [school system's no-reply address]
+- [school system&#x27;s no-reply address]
 - [the club, the studio, the childminder]
 
-## Deliver
-| Who | How |
+## Who it is for
+| Who | How it reaches them |
 |---|---|
-| [You] | [text, email, both] |
-| [Partner] | [text] |
-| [Helper] | [text] |
+| [You] | you run it and read it first |
+| [Partner] | [you copy the summary into the group chat, or print the page] |
+| [Helper] | [same] |
 
 ## One home for each fact
 - Who is away: [the calendar], not this file
 - School events: [the school calendar], never copied by hand
 - The usual week: household.md, not the calendar
 
-
 === rules.md ===
+
+## Order of work
+1. School first: the school calendar, then the mail under the label.
+2. Hold each school item against the family calendar.
+3. Flag every clash: two things in the same hour, two sources disagreeing
+   about a date, or a school item that needs an adult when none is free.
 
 ## Always
 - Money, forms and bookings go at the top, under REMEMBER, with the amount and
   deadline quoted exactly as the source wrote them.
 - Check for a receipt before asking for money. If a confirmation arrived within
   a few days of the request, show it as done instead of asking again.
-- If a key fact is missing, say so. "No date published, check the form" beats
+- If a key fact is missing, say so. &quot;No date published, check the form&quot; beats
   both omitting it and guessing.
 - Dress-up days and bring-something days get flagged the week before, and again
   in the week. Never the night before.
 - Every weekday line answers the same four questions: who is out, who does
   drop-off, who does pickup, what is on afterwards.
 - If nobody covers a handoff, say so plainly. Do not resolve it, do not assume.
+- A line in household.md marked NOT SET is an instruction to say &quot;not
+  assigned&quot; or &quot;not confirmed&quot;. It is never permission to guess.
 
 ## Never
 - Never invent a time, an amount or an address.
 - Never repeat every email. Only items with a date, an amount, a deadline or an
   instruction survive.
-- Never let an email's day-of-the-week mean this week. "Monday" means the Monday
+- Never let an email&#x27;s day-of-the-week mean this week. &quot;Monday&quot; means the Monday
   after it was sent.
 - Never bury a fact inside a joke.
 - Never cut a time, a place or an owner to make the message shorter. Cut the
   commentary instead.
+- Never treat a quiet calendar as a quiet week until you have confirmed each
+  named calendar was actually read.
 
 ## Radar
 - One line. The single most important thing in the next two weeks.
@@ -414,15 +550,14 @@ Write the rule, not the story.]
 -
 -
 
-
 === voice.md ===
 
 ## The character
 [Your register, in two or three lines. Who is speaking, how they regard the
 family, and what they would never say.]
 
-It must never sound like me. Obviously a machine with a personality, not a
-convincing copy of a person.
+It should not pass as me. Either a character with a personality, or plainly
+an AI. Not a convincing copy of a person.
 
 ## Where the joke goes
 Facts are stated flat. A joke may sit before a fact or after it, never on it.
@@ -441,128 +576,149 @@ line in the register, unattributed. Never invent a quote and attribute it.
 ## Emoji
 [How many, and where. They carry meaning or they do not appear.]
 
-
 === digest-template.md ===
 
-## The text
+## Formats
+[The summary in the chat, the page, or both.
+For the page: masthead name, place, one colour.]
+
+## The summary
 1. Greeting. One line, per voice.md.
-2. The week label. "Week: Mon 6 to Sun 12 Oct".
-3. Day by day. Only days with something on. Each day: who is out, who has
+2. The week label. &quot;Week: Mon 6 to Sun 12 Oct&quot;.
+3. REMEMBER. Money, forms, bring-and-wear, bookings. Amounts and deadlines
+   exactly as written. Things already paid marked done rather than deleted.
+4. Day by day. Only days with something on. Each day: who is out, who has
    drop-off and pickup, then what is on, with times exactly as written.
-   Anything urgent goes inside its day, not in a list at the bottom.
-4. A short reminders tail. Two or three lines, genuinely urgent only.
-5. Sign-off. One line.
+5. RADAR. One line.
+6. Sign-off. One line.
+7. Read for this run: each calendar by name with its event count, the mail
+   label with its message count, and anything that could not be read.
 
 A blank line between each day.
-Under 1200 characters. When it runs long, cut commentary, never a time, a place
-or an owner.
+Short enough to copy into a group chat: about 1200 characters, not counting
+line 7. When it runs
+long, cut commentary, never a time, a place or an owner.</pre></details>
+</div>
 
-## The email
-1. Greeting.
-2. Every day Monday to Sunday, including the quiet ones.
-3. REMEMBER. Money, forms, bring-and-wear, bookings. Deadlines in bold. Things
-   already paid marked done rather than deleted.
-4. RADAR. One line.
-5. Sign-off.</pre>
+    <div class="block mint">
+      <h3>Where your copy lives</h3>
+      <p>Once the five are in the project, <strong>the project's files are the master</strong>. When something needs fixing, the system hands you the whole corrected file: delete the old one from the project and add the new one. Keep the downloads as a backup if you like, but do not edit a second copy, because it will drift from the one the system reads.</p>
+    </div>
   </div>
-</section>
+</div></div></section>
 
-<section>
-  <h2>Then make the project</h2>
-  <ol class="steps">
-    <li><div><p>Make a project in Claude, or a project in ChatGPT. Call it Sunday Rundown.</p></div></li>
-    <li><div><p>Connect Google Calendar and Gmail in your settings. Read access to your own accounts, and you do this in settings rather than by pasting anything into a chat.</p></div></li>
-    <li><div><p>Paste your five finished documents into the project's instructions, in order, with a line over each one saying which file it is.</p></div></li>
-    <li><div><p>Add these two lines at the very bottom.</p></div></li>
-  </ol>
+<section class="part" id="project"><div class="wrap"><div class="step">
+  <div class="num" aria-hidden="true">3</div>
+  <div class="read">
+    <h2 class="big">Make the project</h2>
+    <span class="when">10 minutes.</span>
+    <ol>
+      <li>Make a project in Claude, or a project in ChatGPT. Call it Sunday Rundown.</li>
+      <li>Check Google Calendar and Gmail are connected in your settings. You did this in step 1. It is read access to your own accounts, done in settings, never by pasting anything into a chat.</li>
+      <li>Paste the project instructions below into the project's instructions box. They are the same for everyone, so there is nothing to fill in.</li>
+      <li>Add your five finished documents to the project's files. Keep the file names exactly as they are.</li>
+    </ol>
+    <div class="doc" id="p-instructions">
+  <div class="dochead"><div><strong>The project instructions</strong><span>Short, and the same for every household. Your five documents go in the project's files, not here.</span></div><button type="button" class="copy" data-target="p-instructions-text">Copy</button></div>
+  <details open><summary>Read it before you paste it</summary><pre id="p-instructions-text">This project writes my household&#x27;s week. Everything it needs is in this
+project&#x27;s files:
 
-  <div class="promptbox">
-    <header>
-      <span>The last two lines</span>
-      <button class="copy" data-target="tail">Copy</button>
-    </header>
-    <pre id="tail">Use only the sources named in sources.md. Quote every time and amount exactly as written, and if a fact is not in a source, say it is not published rather than supplying it.
+  household.md, sources.md, rules.md, voice.md, digest-template.md
+  and, if I want the page: rundown-template.md and rundown-skeleton.html
 
-When I tell you something in the message was wrong, do not rewrite the message. Tell me which file the correction belongs in, and give me the line to add.</pre>
+Before every run, read all of those files in full. They are the instructions.
+If one is missing or you cannot open it, stop and tell me which.
+
+When I say &quot;run the Sunday&quot;, read the sources named in sources.md and write
+the summary described in digest-template.md.
+
+When I say &quot;run the Weekly Rundown&quot;, follow rundown-template.md, using
+rundown-skeleton.html.
+
+Use only the sources named in sources.md. Ask for each calendar by its exact
+name. Start every run by telling me which calendars and which mail label you
+actually read, and how many items each returned. Quote every time and amount
+exactly as written, and if a fact is not in a source, say it is not published
+rather than supplying it.
+
+When I tell you something was wrong, do not rewrite the message. Tell me which
+file the correction belongs in, show me the line to add, and give me the
+corrected file to download so I can replace the old one in the project.</pre></details>
+</div>
+    <p>The last paragraph is the one that turns a chat into a factory.</p>
+    <div class="aside" id="chatgpt">
+      <p><strong>Using ChatGPT? Check one thing before you build.</strong> In Claude, the calendar connection reads a Google Family calendar and a subscribed school calendar, as long as each is asked for by its exact name, which is why sources.md names them. ChatGPT may only search your main calendar. Start a chat there and type: <em>List every calendar you can see, by name.</em> If your family and school calendars are not in the list, either keep the events you need on your main calendar, or rely on the school emails under your label for dates.</p>
+    </div>
   </div>
-  <p style="margin-top:18px">That second line is the one that turns a chat into a factory.</p>
-</section>
+</div></div></section>
 
-<section>
-  <h2>Every Sunday</h2>
-  <p class="sub">Open the project and type three words.</p>
-  <div class="say">run the Sunday</div>
-  <p style="margin-top:18px">Read it before you send it on. You are the check that the automated version pays a second AI to do.</p>
-</section>
-
-<section>
-  <h2>When it gets something wrong</h2>
-  <p class="sub">Say what was wrong. Take the line it gives you, put it in the file it names, and do not fix the message.</p>
-  <div class="scroll">
-    <table>
-      <thead><tr><th>The mistake</th><th>The file</th></tr></thead>
-      <tbody>
-        <tr><td>It read something it should not have, or missed something it should have read</td><td><span class="file">sources.md</span></td></tr>
-        <tr><td>It got a person, a routine or a handoff wrong</td><td><span class="file">household.md</span></td></tr>
-        <tr><td>It made a bad call about what mattered</td><td><span class="file">rules.md</span></td></tr>
-        <tr><td>It sounded wrong</td><td><span class="file">voice.md</span></td></tr>
-        <tr><td>It was in the wrong order, or too long</td><td><span class="file">digest-template.md</span></td></tr>
-      </tbody>
-    </table>
+<section class="part" id="sunday"><div class="wrap"><div class="step">
+  <div class="num" aria-hidden="true">4</div>
+  <div class="read">
+    <h2 class="big">Every Sunday</h2>
+    <p>Open the project and type three words.</p>
+    <div class="say">run the Sunday</div>
+    <p>The week comes back as a summary, right there in the chat. Read it before you pass it on. You are the check that the automated version pays a second AI to do.</p>
+    <p>Want the whole week on one screen as well, to print for the fridge or keep open in a browser? That is <a href="#page">the page</a>, and it takes one more document.</p>
   </div>
-  <p><span class="mark">Every correction becomes a line in a file. Never a fix to that week's message.</span></p>
-  <p>The instinct is to retype the line and move on. Do that and you will retype it again next week, and the week after, until you quietly stop using the thing.</p>
-</section>
+</div></div></section>
 
-<section>
-  <h2>After a month</h2>
+<section class="part" id="wrong"><div class="wrap"><div class="step">
+  <div aria-hidden="true"></div>
+  <div class="read">
+  <h2 class="big">When it gets something wrong</h2>
+  <p>Say what was wrong. It names the file the fix belongs in and hands you the corrected version. Replace the old file in the project, and do not fix the message.</p>
+  <div class="tablewrap"><table>
+    <tr><th>The mistake</th><th>The file</th></tr>
+    <tr><td>It read something it should not have, or missed something it should have read</td><td>sources.md</td></tr>
+    <tr><td>It got a person, a routine or a handoff wrong</td><td>household.md</td></tr>
+    <tr><td>It made a bad call about what mattered</td><td>rules.md</td></tr>
+    <tr><td>It sounded wrong</td><td>voice.md</td></tr>
+    <tr><td>It was in the wrong order, or too long</td><td>digest-template.md</td></tr>
+    <tr><td>The page had a block missing, misplaced or too long</td><td>rundown-template.md</td></tr>
+  </table></div>
+  <p>Every correction becomes a line in a file. Never a fix to that week's message. The instinct is to retype the line and move on. Do that and you will retype it again next week, and the week after, until you quietly stop using the thing.</p>
+  <h3>After a month</h3>
   <p>The message stops being wrong in new ways and starts being wrong in the same two or three ways, which are the ways your household is genuinely ambiguous.</p>
   <p>That is the point at which the automated version is worth a day of your time, and not before. Five filled-in documents and a Sunday habit beat a half-built system that nobody trusts.</p>
-</section>
+</div>
+</div></div></section>
 
-<section>
-  <h2>The page version</h2>
-  <p class="sub">Optional. Same five documents, one more that describes a layout.</p>
-  <p>The summary is the one you text on. The page is the one you sit down with on Sunday afternoon: the whole week laid out so a clash is visible before you have read a sentence. <a href="https://claude.ai/artifact/La7ogL49KkrJ24YmMaXWPN" target="_blank" rel="noopener">See the four sample families</a>.</p>
-  <p>You get back one self-contained HTML file &mdash; an artefact with a link of its own if your app makes those, otherwise a file to download. Either way it is yours: <strong>print it</strong> for the fridge, <strong>keep the tab open</strong> and come back to it on Wednesday when you have forgotten what Thursday holds, or <strong>send the link</strong> to the other parent, the grandparent, whoever is on the roster. It needs no internet connection to reopen and nothing to install.</p>
-  <p><span class="mark">Do it last.</span> The page is the same gather wearing a better outfit. If the message is wrong, the page is wrong in colour and takes longer to read. Get the five documents honest first, because a page makes mistakes look authoritative, which is the opposite of what you want while you are still finding them.</p>
+<section class="part" id="page"><div class="wrap"><div class="step">
+  <div aria-hidden="true"></div>
+  <div class="read">
+  <h2 class="big">Optional: the page version</h2>
+  <p>The summary is the one you pass on. The page is the one you sit down with on Sunday afternoon: the whole week laid out so a clash is visible before you have read a sentence. <a href="https://claude.ai/artifact/La7ogL49KkrJ24YmMaXWPN">See the four sample families</a>.</p>
+  <p><strong>Do it last.</strong> The page is the same gather wearing a better outfit. If the message is wrong, the page is wrong in colour and takes longer to read. Get the five documents honest first, because a page makes mistakes look authoritative, which is the opposite of what you want while you are still finding them.</p>
+  <p>It needs nothing new to sign up for. Same project, same connections, two more files. Neither needs filling in.</p>
 
-  <p><strong>It needs nothing new.</strong> Same project, same connectors, one more document. Nothing to install, nothing to sign up for, and no schedule to set. You ask for it and it appears.</p>
+  <h3>1. The sixth document</h3>
+  <p>What goes on the page, in what order, and how a run works. The other five describe your household, so nobody else's will do. This one describes a layout, and a layout is the same for everyone. Download it and add it to the project's files, next to your five.</p>
+  <div class="btnrow"><a class="btn" href="files/rundown-template.md" download>Download rundown-template.md</a></div>
+  <div class="doc" id="p-sixth">
+  <div class="dochead"><div><strong>rundown-template.md</strong><span>To read here. The download is the one to add to the project.</span></div><button type="button" class="copy" data-target="p-sixth-text">Copy</button></div>
+  <details><summary>Read it before you paste it</summary><pre id="p-sixth-text">=== rundown-template.md ===
 
-  <h3>The sixth document</h3>
-  <p>Add this to the same project, underneath the other five. It is the one document you do not have to fill in: the other five describe your household, so nobody else's will do. This one describes a layout, and a layout is the same for everyone.</p>
-
-  <div class="promptbox">
-    <header>
-      <span>The sixth document</span>
-      <button class="copy" data-target="rundown">Copy</button>
-    </header>
-    <pre id="rundown" class="fixed">=== rundown-template.md ===
-# rundown-template.md
-
-The shape of the page, as `digest-template.md` is the shape of the message.
+The shape of the page, as digest-template.md is the shape of the summary.
 
 This is the sixth document, and the only one you do not have to fill in. The
-other five describe your household, so nobody else's will do. This one
-describes a layout, and a layout is the same for everyone. Paste it as it is.
+other five describe your household, so nobody else&#x27;s will do. This one
+describes a layout, and a layout is the same for everyone. Add it to the
+project&#x27;s files as it is.
 
-You only need it if you want the page. The text and the email work on five.
-
----
+You only need it if you want the page. The summary works on five.
 
 ## What the page is for
 
-The text is what the family reads walking out the door. The email is the
-archive. The page is the one you sit down with once, with a coffee, and it has
-a different job: **a clash should be visible before you have read a sentence.**
+The summary is what you read in the chat and pass on. The page is the one you
+sit down with once, with a coffee, and it has a different job: a clash should
+be visible before you have read a sentence.
 
 Everything below serves that.
 
----
-
 ## Inherited, without exception
 
-Everything in `rules.md` and `voice.md` applies here. The format changed; the
+Everything in rules.md and voice.md applies here. The format changed; the
 judgment did not. In particular:
 
 - Never invent a time, date, amount or address. Quote it, or say it is not
@@ -575,26 +731,24 @@ judgment did not. In particular:
 
 ## One thing it does differently
 
-`digest-template.md` allows one line of radar, because a text message has no
+digest-template.md allows one line of radar, because a short summary has no
 room to be wrong. The page gets a full four-week horizon table instead. A page
 costs nothing to scroll.
-
----
 
 ## The blocks, in order
 
 | # | Block | Job |
 |---|---|---|
-| 1 | Masthead | family name, "Weekly Rundown", the date, the place |
+| 1 | Masthead | family name, &quot;Weekly Rundown&quot;, the date, the place |
 | 2 | Provenance | what was read, and when |
-| 3 | Greeting | one fresh line, per `voice.md` |
+| 3 | Greeting | one fresh line, per voice.md |
 | 4 | Clashes and decisions | the only block that can ruin the week if skipped |
-| 5 | Already handled | what the week does *not* need from you |
+| 5 | Already handled | what the week does not need from you |
 | 6 | The week at a glance | Monday to Friday, side by side |
 | 7 | The weekend | given its own room |
 | 8 | The desk | one block per child |
-| 9 | Weather | on if `sources.md` names a forecast, off if it does not. Never invented — see below |
-| 10 | This week's good idea | one small thing that buys back time |
+| 9 | Weather | on if sources.md names a forecast, off if it does not |
+| 10 | This week&#x27;s good idea | one small thing that buys back time |
 | 11 | On the horizon | the rest of this month, a glimpse of next |
 | 12 | Footer | what was read, what could not be, and the sign-off |
 
@@ -605,27 +759,28 @@ Everything else on the page is reference. This block is the reason to build it.
 - Walk the school sources first, then hold each item against the family
   calendar. Two things in the same hour is a clash. Two sources disagreeing
   about a date is a clash.
-- One row per item: a checkbox, an owner's name, the decision in bold, then
+- One row per item: a checkbox, an owner&#x27;s name, the decision in bold, then
   the detail that settles it.
-- Name an owner always. "Everyone" is an owner. "Someone" is not.
+- Name an owner always. &quot;Everyone&quot; is an owner. &quot;Someone&quot; is not.
 - Order by what it costs to get wrong, not by date.
-- Anything that changes the school day — a closure, a room move, medication,
-  buses — goes at the top regardless of date. It affects the morning.
+- Anything that changes the school day (a closure, a room move, medication,
+  buses) goes at the top regardless of date. It affects the morning.
 
 ### Already handled
 
 Bookings confirmed, payments receipted, appointments locked. One line each,
 ticked. This is what stops the page reading as a list of demands.
 
-**If nothing qualifies, cut the block.** Never pad it. If the mail sweep did
-not run, say that instead — an unchecked list is not a clear one.
+If nothing qualifies, cut the block. Never pad it. If the mail sweep did not
+run, say that instead. An unchecked list is not a clear one.
 
 ### The week and the weekend
 
 - Monday to Friday as five columns. Each gets a strip naming who is away from
-  home base, then a line answering **who does the morning and who does
-  pick-up**, then the day's events.
-- Name people. "Paul in Sydney", never "away". Never a bare "Home."
+  home base, then a line answering who does the morning and who does pick-up,
+  then the day&#x27;s events.
+- Name the person and the place, exactly as the calendar does. Never a bare
+  &quot;away&quot;. Never a bare &quot;Home.&quot;
 - The weekend names both parents too, day by day. Naming only the one who is
   travelling leaves the other unaccounted for.
 - Every event keeps its time. An event without its time is an error, not a
@@ -634,152 +789,393 @@ not run, say that instead — an unchecked list is not a clear one.
 ### The desk
 
 One block per child: their name, year and school, then what the week actually
-requires of them. Unread mail is worth naming — "Friday's newsletter is
-unread" is a useful sentence.
+requires of them. Unread mail is worth naming. &quot;Friday&#x27;s newsletter is unread&quot;
+is a useful sentence.
 
 Holidays, staff days and public holidays inside the next two weeks are phrased
 as care impact: kids home, who is on.
 
----
-
-### Weather — on or off, never invented
-
-Worth having, and worth being strict about. The strip is what turns "futsal
-5:00pm" into "hat and a full water bottle", which is the difference between
-knowing the week and being ready for it. It is also the easiest block here to
-fabricate, because a plausible forecast is easy to write and nobody checks it
-until they are standing in the rain.
+### Weather: on or off, never invented
 
 Two allowed states, and no third:
 
-- **`sources.md` names a forecast source** — look it up, show the strip, and
-  finish with one "what to bring" line that turns the numbers into actions.
-- **It does not** — leave the whole block out. No strip, no "what to bring", no
+- sources.md names a forecast source: look it up, show the strip, and finish
+  with one &quot;what to bring&quot; line that turns the numbers into actions.
+- It does not: leave the whole block out. No strip, no &quot;what to bring&quot;, no
   mention of the weather anywhere on the page.
 
-Never estimate from the season, never reuse last week's, never soften a guess
-with "probably". A forecast nobody looked up is an invented fact, and it is the
+Never estimate from the season, never reuse last week&#x27;s, never soften a guess
+with &quot;probably&quot;. A forecast nobody looked up is an invented fact, and it is the
 one invented fact people act on.
 
-In the by-hand version the source is the app's own web search, named in
-`sources.md` like anything else.
+In the by-hand version the source is the app&#x27;s own web search, named in
+sources.md like anything else.
 
 ## The Verify tag
 
-The page's one invention, and the thing that stops it guessing.
-
-A **Verify** tag means: two sources disagree, or a fact you need is not in any
+A Verify tag means: two sources disagree, or a fact you need is not in any
 source. It goes next to the item, and the item states both readings and what
 each would cost.
 
-> Cast B is listed Tuesday, Wednesday and Thursday. The family calendar only
-> has Wednesday. If he is on Tuesday it sits on top of piano at 5:00pm; if
-> Thursday, football starts at 4:00pm and arrival is 5:30pm. **Verify**
+&gt; Cast B is listed Tuesday, Wednesday and Thursday. The family calendar only
+&gt; has Wednesday. If he is on Tuesday it sits on top of piano at 5:00pm; if
+&gt; Thursday, football starts at 4:00pm and arrival is 5:30pm. Verify
 
 Two rules keep it meaningful:
 
-- **Never tag something the sources settle.** A Verify tag on a known fact
-  teaches you to ignore the tag.
-- **Roughly seven a page, maximum.** Past that it stops meaning "look here".
-
----
+- Never tag something the sources settle. A Verify tag on a known fact teaches
+  you to ignore the tag.
+- Roughly seven a page, maximum. Past that it stops meaning &quot;look here&quot;.
 
 ## How it should look
 
-Plain rules, not decoration. You can change all of this; it only has to hold
-together.
+The look is not yours to design. It lives in rundown-skeleton.html, which is in
+this project&#x27;s files. Fill that file in. Do not write a page from scratch.
 
-- **One self-contained HTML file.** No scripts, no images, nothing to install.
-- **Three typefaces by job:** a tight display face for headings, a plain sans
-  for facts, a handwriting face for margin notes and the sign-off only.
-- **Colour defined once at the top** and reused, so it survives dark mode.
-  Any block with a tint must set its own text colour, or dark mode flips the
-  text and leaves it sitting on the tint.
-- **Heavy rules under the masthead and above the footer.** It should read like
-  a newspaper, because a newspaper is a solved problem.
-- **It must work on a phone.** Five columns become one. No sideways scrolling.
-- **It must print.** Some people put it on the fridge.
+- Copy its style block unchanged. Do not add, remove or rewrite a rule.
+- Change only the colour values it marks as changeable, using the colour in
+  the Formats section of digest-template.md, and the words in [brackets].
+- Repeat a row, an event or a child&#x27;s block as many times as the week needs.
+  Delete a block this document says to cut.
+- One self-contained HTML file. No scripts, no images, nothing to install.
 - Two or three handwritten notes on the whole page, each an observation, never
   a label.
+- The skeleton already works on a phone and prints. Do not undo either.
 
----
+## What &quot;run the Weekly Rundown&quot; means
+
+Work in two passes.
+
+Pass one, the gather. Read only what sources.md names. Then show me a plain
+list, no design: which sources you read and how many items each returned, then
+each day, who is out, who has drop-off and pickup, each event with its time
+exactly as written, every amount and deadline, everything you would tag Verify
+and why, and anything you could not read. Do not build anything yet. End with
+exactly this line and then stop:
+
+  Check the list. Tell me what is wrong, or type: generate the page
+
+Pass two, the page. Only when I type &quot;generate the page&quot;, or after I correct
+you and then say it, build the page by filling in rundown-skeleton.html,
+following this document, using the corrected list and nothing else. Masthead
+name, place and colour come from the Formats section of digest-template.md.
+
+Give me the page as one HTML file to download. Do not publish it, do not
+create a public or shareable link to it, and do not offer to. Under the file,
+say once: &quot;This page has your children&#x27;s names, school and whereabouts on it.
+Keep it private. Download the file and drag it into your browser to read or
+print it.&quot;
+
+If I corrected anything in pass one, finish by telling me which file each
+correction belongs in, the line to add, and give me the corrected file to
+download.
 
 ## Where a correction goes
 
 Same rule as the other five. A page that gets something wrong sends you here,
-or to `rules.md` if the message would have got it wrong too.
+or to rules.md if the summary would have got it wrong too.
 
-Never to the prompt. The page is this week's; the files are every week's.</pre>
-  </div>
+Never to the prompt. The page is this week&#x27;s; the files are every week&#x27;s.</pre></details>
+</div>
 
-  <h3>Then, when you want one</h3>
+  <h3>2. The skeleton</h3>
+  <p>How the page looks. It is the actual page with the words taken out, so the AI fills in your week and leaves the design alone. That is why yours will look like the samples, and look the same every Sunday.</p>
+  <p>Download it and add it to the project's files too.</p>
+  <div class="btnrow"><a class="btn" href="files/rundown-skeleton.html" download>Download rundown-skeleton.html</a></div>
+  <div class="doc" id="p-skeleton">
+  <div class="dochead"><div><strong>rundown-skeleton.html</strong><span>To read here. The download is the one to add to the project.</span></div><button type="button" class="copy" data-target="p-skeleton-text">Copy</button></div>
+  <details><summary>Read it before you paste it</summary><pre id="p-skeleton-text">&lt;!DOCTYPE html&gt;
+&lt;!--
+  rundown-skeleton.html
+  The fixed look of the Weekly Rundown page. rundown-template.md says what goes on the page; this says how it looks.
+
+  RULES FOR WHOEVER FILLS THIS IN
+  1. Copy the &lt;style&gt; block unchanged. Only the values between the two marked comments in :root may change.
+  2. Replace every [bracketed] slot with a fact from the gather. A slot with no fact is removed, never guessed.
+  3. Repeat a REPEAT element as many times as the week needs. Remove an OPTIONAL block when rundown-template.md says to cut it.
+  4. Add no scripts, no images, no new CSS, no new blocks. Remove these comments from the finished page.
+  5. Child pills: first child k1, second k2, third k3, fourth k4, adults &quot;ad&quot;. Same child, same class, everywhere.
+--&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot;&gt;
+&lt;title&gt;[Family name] Weekly Rundown&lt;/title&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&amp;family=Caveat:wght@500;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+:root{
+  /* THE ONLY VALUES YOU MAY CHANGE. Everything below this block stays exactly as it is. */
+  --pop:#2E7D5B;        /* the family&#x27;s colour: date tab, hot days */
+  --pop-ink:#fff;       /* text on top of --pop. Must stay readable */
+  --paper:#ECEEF1; --card:#fff; --ink:#1E242C; --muted:#5B6572;
+  --soft:#FBF0C2; --t1:#D5E8DD; --t2:#F6D5D5;
+  --k1:#D5E8DD; --k2:#F6D5D5; --k3:#FBF0C2; --k4:#CDE3F2;   /* one tint per child */
+  --alert:#B3261E; --alert-soft:#FADFDB; --line:rgba(0,0,0,.15);
+  /* END OF CHANGEABLE VALUES */
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  --head:&quot;Bricolage Grotesque&quot;,system-ui,sans-serif; --mast:clamp(46px,9.4vw,112px); --mast-case:none; --mast-track:-.025em; --h2:28px;
+}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:&quot;Instrument Sans&quot;,system-ui,-apple-system,&quot;Segoe UI&quot;,sans-serif; font-size:15px; line-height:1.45}
+.sheet{max-width:1120px; margin:0 auto; padding:28px 20px 40px}
+h1,h2,h3{font-family:var(--head); margin:0; line-height:1.02}
+.hand{font-family:&quot;Caveat&quot;,&quot;Bradley Hand&quot;,cursive; font-weight:700; line-height:1.05}
+.mast{display:grid; grid-template-columns:1fr auto; gap:20px; align-items:end; border-bottom:4px solid var(--ink); padding-bottom:14px}
+.mast .family{font-family:var(--head); font-weight:700; font-size:20px}
+.mast h1{font-size:var(--mast); font-weight:800; font-stretch:75%; letter-spacing:var(--mast-track); text-transform:var(--mast-case); margin-top:2px}
+.datetab{background:var(--pop); color:var(--pop-ink); padding:12px 16px; text-align:right; font-weight:600; transform:rotate(1.5deg)}
+.datetab b{display:block; font-family:var(--head); font-size:26px; font-weight:800; line-height:1.05}
+.from{display:flex; flex-wrap:wrap; gap:6px 22px; justify-content:space-between; padding:10px 0 22px; color:var(--muted); font-size:14px}
+.from strong{color:var(--ink)}
+.greet{font-size:32px; margin:0 0 18px}
+.row{display:grid; gap:16px; margin-bottom:16px}
+.r1{grid-template-columns:minmax(0,3.2fr) minmax(0,1.25fr)}
+.r2{grid-template-columns:minmax(0,2.5fr) minmax(0,1fr)}
+.r3{display:flex; flex-wrap:wrap}
+.r3 &gt; .block{flex:1 1 300px; min-width:0}
+.r3 &gt; .block:first-child:nth-last-child(4), .r3 &gt; .block:first-child:nth-last-child(4) ~ .block{flex-basis:40%}
+.r4{display:flex; flex-wrap:wrap}
+.r4 &gt; .block{flex:1 1 300px; min-width:0}
+.r4 &gt; .block.wxblock{flex:1.6 1 420px}
+.block{background:var(--card); border:1.5px solid var(--ink); padding:18px}
+.block &gt; h2{font-size:var(--h2); font-weight:800; font-stretch:80%}
+.block &gt; .sub{color:var(--muted); font-size:13.5px; margin:4px 0 14px}
+.t1{background:var(--t1)} .t2{background:var(--t2)} .tsoft{background:var(--soft)}
+.todo{list-style:none; margin:0; padding:0}
+.todo li{display:grid; grid-template-columns:22px 108px 1fr; gap:10px; padding:9px 0; border-top:1px solid var(--line); align-items:start}
+.todo li:first-child{border-top:0}
+.box{width:16px; height:16px; border:1.5px solid var(--ink); margin-top:2px}
+.who{font-weight:700; font-size:13.5px}
+.tag{display:inline-block; font-size:11.5px; font-weight:700; padding:1px 7px; border-radius:99px; border:1.5px solid var(--alert); color:var(--alert); background:var(--alert-soft); margin-left:4px; white-space:nowrap}
+.done{list-style:none; margin:0 0 14px; padding:0}
+.done li{padding:7px 0 7px 26px; position:relative; border-top:1px solid var(--line); font-size:14px}
+.done li:first-child{border-top:0}
+.done li::before{content:&quot;✓&quot;; position:absolute; left:2px; top:6px; font-weight:800}
+.note{font-size:25px; transform:rotate(-3deg); display:inline-block; margin-top:6px}
+.legend{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px}
+.p{display:inline-block; font-size:11.5px; font-weight:700; padding:1px 8px; border-radius:99px; border:1.5px solid var(--ink); margin-right:3px}
+.p.k1{background:var(--k1)} .p.k2{background:var(--k2)} .p.k3{background:var(--k3)} .p.k4{background:var(--k4)} .p.ad{background:var(--card)}
+.week{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); border:1.5px solid var(--ink)}
+.day{border-left:1px solid var(--line)} .day:first-child{border-left:0}
+.day header{padding:8px 10px; border-bottom:1.5px solid var(--ink)}
+.day header b{font-family:var(--head); font-size:19px; font-weight:800; display:block; line-height:1}
+.day header span{font-size:12.5px; color:var(--muted)}
+.away{font-size:12.5px; font-weight:600; padding:5px 10px; background:var(--soft); border-bottom:1px solid var(--line); min-height:30px}
+.ev{padding:9px 10px; border-bottom:1px solid var(--line); font-size:13.5px}
+.ev:last-child{border-bottom:0}
+.ev time{display:block; font-weight:700; font-size:12.5px}
+.ev small{display:block; color:var(--muted); font-size:12.5px; margin-top:2px}
+.ev.flag{background:var(--alert-soft)}
+.weekend h3{font-size:19px; font-weight:800; margin:14px 0 6px; padding-top:12px; border-top:1.5px solid var(--ink)}
+.weekend h3:first-of-type{border-top:0; padding-top:0; margin-top:0}
+.weekend .ev{padding-left:0; padding-right:0}
+.desk h3{font-size:21px; font-weight:800; display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 10px; align-items:baseline}
+.desk h3 span{font-family:&quot;Instrument Sans&quot;,sans-serif; font-size:13px; font-weight:600}
+.desk ul{margin:12px 0 0; padding-left:18px} .desk li{margin-bottom:7px}
+.wx{display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); border:1.5px solid var(--ink); text-align:center}
+.wx div{padding:8px 2px; border-left:1px solid var(--line); font-size:12px} .wx div:first-child{border-left:0}
+.wx b{display:block; font-family:var(--head); font-size:20px; font-weight:800; line-height:1.1}
+.wx .hot{background:var(--pop); color:var(--pop-ink)} .wx .cold{background:var(--t1)}
+.bring{margin-top:12px; font-size:14px}
+.horizon{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 28px}
+.horizon h3{font-size:16px; font-weight:800; border-bottom:1.5px solid var(--ink); padding-bottom:4px; margin-bottom:6px}
+.horizon dl{margin:0; display:grid; grid-template-columns:minmax(4.5em,max-content) minmax(0,1fr); gap:5px 14px; font-size:14px}
+.horizon dt{font-weight:700; max-width:11em} .horizon dd{margin:0; min-width:0; overflow-wrap:anywhere}
+footer{margin-top:22px; border-top:4px solid var(--ink); padding-top:14px; display:grid; grid-template-columns:1fr auto; gap:16px; align-items:end}
+footer .sign{font-size:32px} footer p{margin:0; color:var(--muted); font-size:13px; max-width:62ch}
+@media (max-width:900px){ .r1,.r2{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:720px){
+  .horizon{grid-template-columns:minmax(0,1fr)}
+  .week{grid-template-columns:minmax(0,1fr)}
+  .day{border-left:0; border-top:1.5px solid var(--ink)} .day:first-child{border-top:0}
+  .todo li{grid-template-columns:22px 1fr} .todo .who,.todo .what{grid-column:2}
+  .mast{grid-template-columns:1fr} .datetab{justify-self:start; text-align:left}
+  .wx{grid-template-columns:repeat(4,minmax(0,1fr))} .wx div{border-top:1px solid var(--line)}
+  footer{grid-template-columns:1fr}
+}
+.block,.todo li,.ev,.day,.wx div{color:var(--ink)}
+@media print{
+  body{background:#fff; font-size:12px} .sheet{max-width:none; padding:0}
+  .block,.day,.weekend{break-inside:avoid} .datetab,.note{transform:none}
+  *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main class=&quot;sheet&quot;&gt;
+
+  &lt;!-- 1 MASTHEAD --&gt;
+  &lt;div class=&quot;mast&quot;&gt;
+    &lt;div&gt;&lt;div class=&quot;family&quot;&gt;[Family name]&lt;/div&gt;&lt;h1&gt;Weekly Rundown&lt;/h1&gt;&lt;/div&gt;
+    &lt;div class=&quot;datetab&quot;&gt;[Day the page was built]&lt;b&gt;[Date, e.g. 20 Sep 2026]&lt;/b&gt;[Place]&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 2 PROVENANCE --&gt;
+  &lt;div class=&quot;from&quot;&gt;
+    &lt;span&gt;Delivered by &lt;strong&gt;[Character name, from voice.md]&lt;/strong&gt;. [One short line in the register]&lt;/span&gt;
+    &lt;span&gt;For [who receives it]. Week of [Mon date] to [Sun date].&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 3 GREETING --&gt;
+  &lt;p class=&quot;hand greet&quot;&gt;[Greeting, one fresh line per voice.md]&lt;/p&gt;
+
+  &lt;!-- 4 CLASHES AND DECISIONS + 5 ALREADY HANDLED --&gt;
+  &lt;div class=&quot;row r1&quot;&gt;
+    &lt;section class=&quot;block&quot;&gt;
+      &lt;h2&gt;Clashes and decisions&lt;/h2&gt;
+      &lt;p class=&quot;sub&quot;&gt;[What was checked first, then what it was crossed against]&lt;/p&gt;
+      &lt;ul class=&quot;todo&quot;&gt;
+        &lt;!-- REPEAT one li per item, ordered by what it costs to get wrong --&gt;
+        &lt;li&gt;&lt;span class=&quot;box&quot;&gt;&lt;/span&gt;&lt;span class=&quot;who&quot;&gt;[Owner]&lt;/span&gt;&lt;span class=&quot;what&quot;&gt;&lt;b&gt;[The decision.]&lt;/b&gt; [The detail that settles it.] &lt;!-- only when sources disagree or a needed fact is unpublished: --&gt;&lt;span class=&quot;tag&quot;&gt;Verify&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+    &lt;!-- OPTIONAL: cut this whole section if nothing qualifies. If the mail sweep did not run, say that here instead. --&gt;
+    &lt;section class=&quot;block t1&quot;&gt;
+      &lt;h2&gt;Already handled&lt;/h2&gt;
+      &lt;p class=&quot;sub&quot;&gt;Things the week doesn&#x27;t need from you.&lt;/p&gt;
+      &lt;ul class=&quot;done&quot;&gt;
+        &lt;li&gt;[Confirmed booking, receipted payment or locked appointment]&lt;/li&gt;&lt;!-- REPEAT --&gt;
+      &lt;/ul&gt;
+      &lt;span class=&quot;hand note&quot;&gt;[Handwritten note. An observation, never a label.]&lt;/span&gt;&lt;!-- OPTIONAL. Two or three notes on the whole page. --&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 6 THE WEEK AT A GLANCE + 7 THE WEEKEND --&gt;
+  &lt;div class=&quot;row r2&quot;&gt;
+    &lt;section class=&quot;block&quot;&gt;
+      &lt;h2&gt;The week at a glance&lt;/h2&gt;
+      &lt;p class=&quot;sub&quot;&gt;Top strip shows who is away from home that day.&lt;/p&gt;
+      &lt;div class=&quot;legend&quot;&gt;
+        &lt;span class=&quot;p k1&quot;&gt;[Child one]&lt;/span&gt;&lt;span class=&quot;p k2&quot;&gt;[Child two]&lt;/span&gt;&lt;span class=&quot;p ad&quot;&gt;Adults&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;week&quot;&gt;
+        &lt;!-- REPEAT exactly five: Mon to Fri --&gt;
+        &lt;div class=&quot;day&quot;&gt;
+          &lt;header&gt;&lt;b&gt;[Mon]&lt;/b&gt;&lt;span&gt;[21 Sep]&lt;/span&gt;&lt;/header&gt;
+          &lt;div class=&quot;away&quot;&gt;[Who is away and where, by name. If nobody: &quot;Everyone local&quot;]&lt;/div&gt;
+          &lt;div class=&quot;ev&quot;&gt;&lt;time&gt;Morning and pickup&lt;/time&gt;[Who does the morning]. [Who does pickup].&lt;/div&gt;
+          &lt;!-- REPEAT one .ev per event. Every event keeps its time, exactly as written. Add class &quot;flag&quot; to an event carrying a Verify tag. --&gt;
+          &lt;div class=&quot;ev&quot;&gt;&lt;time&gt;[Time as written]&lt;/time&gt;&lt;span class=&quot;p k1&quot;&gt;[Child]&lt;/span&gt;[Event]&lt;small&gt;[Optional detail: who drives, what to bring]&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;block weekend t2&quot;&gt;
+      &lt;h2&gt;The weekend&lt;/h2&gt;
+      &lt;p class=&quot;sub&quot;&gt;[Where each adult is, both days, by name]&lt;/p&gt;
+      &lt;h3&gt;[Sat 26 Sep]&lt;/h3&gt;
+      &lt;div class=&quot;ev&quot;&gt;&lt;time&gt;[Time]&lt;/time&gt;[Event]&lt;small&gt;[Optional detail]&lt;/small&gt;&lt;/div&gt;&lt;!-- REPEAT --&gt;
+      &lt;h3&gt;[Sun 27 Sep]&lt;/h3&gt;
+      &lt;div class=&quot;ev&quot;&gt;&lt;time&gt;[Time]&lt;/time&gt;[Event]&lt;/div&gt;&lt;!-- REPEAT --&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 8 THE DESK: REPEAT one section per child. The row lays itself out for one, two, three, four or more. --&gt;
+  &lt;div class=&quot;row r3 desk&quot;&gt;
+    &lt;section class=&quot;block&quot;&gt;
+      &lt;h3&gt;[Child, year] &lt;span&gt;[School or daycare]&lt;/span&gt;&lt;/h3&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;b&gt;[What the week requires.]&lt;/b&gt; [Detail, dates and amounts quoted exactly.]&lt;/li&gt;&lt;!-- REPEAT --&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 9 WEATHER + 10 GOOD IDEA. If weather is deleted, the good idea takes the full row on its own. --&gt;
+  &lt;div class=&quot;row r4&quot;&gt;
+    &lt;!-- OPTIONAL: include ONLY if sources.md names a forecast and it was looked up this run. Otherwise delete this whole section. Never estimate. --&gt;
+    &lt;section class=&quot;block wxblock&quot;&gt;
+      &lt;h2&gt;Weather watch&lt;/h2&gt;
+      &lt;p class=&quot;sub&quot;&gt;[Town]. High / low in °C, chance of rain underneath. [Where the forecast came from]&lt;/p&gt;
+      &lt;div class=&quot;wx&quot;&gt;
+        &lt;!-- REPEAT seven, Mon to Sun. Add class &quot;hot&quot; or &quot;cold&quot; only to the days that change what anyone packs. --&gt;
+        &lt;div&gt;[Mon]&lt;b&gt;[High]°&lt;/b&gt;[Low]°&lt;br&gt;[Rain]%&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;bring&quot;&gt;&lt;b&gt;What to bring:&lt;/b&gt; [Turn the numbers into actions, tied to real events this week.]&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;block tsoft&quot;&gt;
+      &lt;h2&gt;This week&#x27;s good idea&lt;/h2&gt;
+      &lt;p class=&quot;sub&quot;&gt;[One line]&lt;/p&gt;
+      &lt;p style=&quot;margin:0 0 10px&quot;&gt;&lt;b&gt;[One small thing that buys back time.]&lt;/b&gt; [How.]&lt;/p&gt;
+      &lt;p style=&quot;margin:0&quot;&gt;&lt;b&gt;Plan B:&lt;/b&gt; [The fallback.]&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 11 ON THE HORIZON: its own full-width row. Four weeks. A date range is fine: write it &quot;Mon 28 to Wed 30&quot;. --&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;section class=&quot;block&quot;&gt;
+      &lt;h2&gt;On the horizon&lt;/h2&gt;
+      &lt;p class=&quot;sub&quot;&gt;[Term or holiday boundary inside the next four weeks, if published]&lt;/p&gt;
+      &lt;div class=&quot;horizon&quot;&gt;
+        &lt;div&gt;&lt;h3&gt;[Rest of this month]&lt;/h3&gt;&lt;dl&gt;&lt;dt&gt;[Date]&lt;/dt&gt;&lt;dd&gt;[What, phrased as care impact where it is one]&lt;/dd&gt;&lt;!-- REPEAT dt/dd --&gt;&lt;/dl&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;h3&gt;[A glimpse of next month]&lt;/h3&gt;&lt;dl&gt;&lt;dt&gt;[Date]&lt;/dt&gt;&lt;dd&gt;[What]&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 12 FOOTER --&gt;
+  &lt;footer&gt;
+    &lt;p&gt;Read for this page: [each source actually read, and when]. Could not read: [anything that failed, or &quot;nothing&quot;]. Anything tagged Verify is a clash the sources could not settle on their own.&lt;/p&gt;
+    &lt;div class=&quot;hand sign&quot;&gt;[Sign-off, per voice.md]&lt;br&gt;[Character name]&lt;/div&gt;
+  &lt;/footer&gt;
+
+&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+</div>
+
+  <h3>How a page run works</h3>
+  <p>Two passes, on purpose. Open the project and type:</p>
   <div class="say">run the Weekly Rundown</div>
-  <p style="margin-top:18px"><strong>run the Sunday</strong> still gives you the text and the email, unchanged. The system is still the Sunday Rundown. Only the page has the new name.</p>
-
-  <h3>The weather, and why to turn it on</h3>
-  <p>The strip across the bottom of the samples is the quietly useful part, and not because of the numbers. It is the line underneath them: hat and a full water bottle Monday, jumper back in the bag Tuesday, a warm layer for the 8:00pm pickup. That is the difference between knowing what the week holds and being ready for it, and it is the sort of thing that otherwise gets remembered in the car.</p>
-  <p><span class="mark">It is off unless you ask for it.</span> A forecast nobody looked up is an invented fact, and it is the one invented fact you would actually act on. So the setup interview asks you outright whether it should look up your local forecast and which town, and your answer goes in <span class="file">sources.md</span> like any other source. Say no and the page leaves weather out completely rather than estimating it.</p>
-  <p>The lookup is your app's own web search. Nothing extra to connect, and no key to pay for.</p>
+  <p>You get a plain list of everything it found: what it read, each day, every time, amount and deadline, and anything it refuses to guess. You can check it in thirty seconds. Tell it what is wrong, and when the list is right, type:</p>
+  <div class="say">generate the page</div>
+  <p>You correct the list, never the finished page, because a finished page looks right whether it is or not. <strong>run the Sunday</strong> still gives you the summary in the chat, unchanged.</p>
+  <div class="block warn">
+    <h3>Keep the page private</h3>
+    <p>It is a page about your children: their names, their school, where they are on which afternoon, and which nights the house has one adult in it. <strong>Do not publish it and do not share it by public link.</strong> The run is told not to offer.</p>
+    <p>You get one HTML file. Download it, then drag the file into your browser to read it, and print from there for the fridge. It needs nothing installed.</p>
+  </div>
 
   <h3>The red Verify tags</h3>
-  <p>The most useful thing on the page, and worth understanding before your first one. A <strong>Verify</strong> tag means the system found something it refuses to guess at, either two sources disagreeing or a fact you need that nobody published, and it states both readings and what each would cost.</p>
-  <div class="note">
-    <p>Cast B is listed Tuesday, Wednesday and Thursday. The family calendar only has Wednesday. If he is on Tuesday it sits on top of piano at 5:00pm; if Thursday, football starts at 4:00pm and arrival is 5:30pm. <strong>Verify</strong></p>
+  <p>The most useful thing on the page. A <span class="tag">Verify</span> tag means the system found something it refuses to guess at, either two sources disagreeing or a fact you need that nobody published, and it states both readings and what each would cost.</p>
+  <div class="block">
+    <p>Cast B is listed Tuesday, Wednesday and Thursday. The family calendar only has Wednesday. If he is on Tuesday it sits on top of piano at 5:00pm; if Thursday, football starts at 4:00pm and arrival is 5:30pm. <span class="tag">Verify</span></p>
   </div>
-  <p>That is not the system failing. That is the system finding the thing you would otherwise have discovered on Tuesday at 5:25pm.</p>
-  <p>Six or seven of them means it is working. Twenty means <span class="file">household.md</span> is vague. None, on a busy week, means it guessed, and that is worth checking rather than enjoying.</p>
+  <p>That is not the system failing. That is the system finding the thing you would otherwise have discovered on Tuesday at 5:25pm. Six or seven of them means it is working. Twenty means household.md is vague. None, on a busy week, means it guessed, and that is worth checking rather than enjoying.</p>
 
-  <h3>When the page is wrong</h3>
-  <p>Same rule, one more file. A block in the wrong order, missing, or too long goes in <span class="file">rundown-template.md</span>. A bad call about what mattered still goes in <span class="file">rules.md</span>. Never fix the page.</p>
+</div>
+</div></div></section>
 
-  <div class="note">
-    <p><strong>It is a page about your children.</strong> Their names, their schools, where they are on which afternoon, and which nights the house has one adult in it. If you publish it to get a link, keep that link to yourself and share it deliberately.</p>
-  </div>
-</section>
+<section class="part" id="later"><div class="wrap"><div class="step">
+  <div aria-hidden="true"></div>
+  <div class="read">
+  <h2 class="big">When you are ready for the automated version</h2>
+  <p>This is stage one of a few. If you want to build the whole system and automate things as you go, <a href="https://deebugging.life/build/">go here and nerd out</a>.</p>
+</div>
+</div></div></section>
 
-<section>
-  <h2>Two things to decide now</h2>
-  <p class="sub">Both are painful to change later.</p>
-  <div class="note">
-    <p><strong>Who is on the receiving end.</strong> Anyone who gets the message needs to be able to act on it. People who receive it out of politeness stop reading by week three, and then you have a system that is technically working and practically ignored.</p>
-  </div>
-  <div class="note">
-    <p><strong>Whether it sounds like you.</strong> It should not. A weekly message that convincingly impersonates you to your own family is a strange thing to have built, and you will only notice once somebody replies to it.</p>
-  </div>
-</section>
-
-<footer>
-  <p><strong>When you are ready for the automated version.</strong> It takes these same five files, unchanged, and runs them on a schedule: a text on Sunday morning, checked by a second AI before it sends, with nobody opening anything. Comment BUILD.</p>
-  <p>The files do not change between the two. You are not rebuilding, you are plugging the same documents into a different engine.</p>
-  <p><strong>Take it and change it.</strong> Everything here is MIT licensed: use it, alter it, build something else out of it, no permission needed and no warranty given. It writes messages about your family, so read what it writes.</p>
-  <p><strong>Nothing here is for sale.</strong> There is no course and no paywall. This one costs you nothing beyond the AI subscription you already have.</p>
-  <p><a href="https://www.instagram.com/deebugging.life/">@deebugging.life</a> &middot; Deebugging.life</p>
-</footer>
-
+<div class="wrap">
+  <footer class="end">
+    <div>
+      <p><strong>Take it and change it.</strong> Everything here is MIT licensed: use it, alter it, build something else out of it, no permission needed and no warranty given. It writes messages about your family, so read what it writes.</p>
+      <p><strong>Nothing here is for sale.</strong> There is no course and no paywall. This costs you nothing beyond the AI subscription you already have.</p>
+      <p><a href="https://www.instagram.com/deebugging.life/">@deebugging.life</a></p>
+    </div>
+    <div class="hand sign">Read it before<br>you send it.</div>
+  </footer>
 </div>
 
 <script>
-  document.querySelectorAll("button.copy").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var el = document.getElementById(btn.dataset.target);
-      if (!el) return;
-      var done = function () {
-        var was = btn.textContent;
-        btn.textContent = "Copied";
-        setTimeout(function () { btn.textContent = was; }, 1600);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(el.innerText).then(done, function () {
-          btn.textContent = "Select it and copy";
-        });
-      } else {
-        var r = document.createRange();
-        r.selectNodeContents(el);
-        var s = window.getSelection();
-        s.removeAllRanges();
-        s.addRange(r);
-        btn.textContent = "Selected, press copy";
-      }
-    });
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=document.getElementById(b.dataset.target).textContent;
+    function ok(){b.textContent='Copied';b.classList.add('done');setTimeout(function(){b.textContent='Copy';b.classList.remove('done');},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fallback);}else{fallback();}
+    function fallback(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){b.textContent='Select and copy below';}document.body.removeChild(a);}
   });
+});
 </script>
+</body>
+</html>
